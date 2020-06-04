@@ -1,0 +1,1 @@
+g++  -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -pthread -O2 -DNDEBUG  -rdynamic CMakeFiles/main.dir/test/main.cpp.o CMakeFiles/main.dir/base/Acceptor.cpp.o  -o ../../main 

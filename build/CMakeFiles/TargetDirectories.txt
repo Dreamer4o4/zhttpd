@@ -1,0 +1,5 @@
+/home/zh/Downloads/zhttpd/build/CMakeFiles/rebuild_cache.dir
+/home/zh/Downloads/zhttpd/build/CMakeFiles/edit_cache.dir
+/home/zh/Downloads/zhttpd/build/src/CMakeFiles/rebuild_cache.dir
+/home/zh/Downloads/zhttpd/build/src/CMakeFiles/edit_cache.dir
+/home/zh/Downloads/zhttpd/build/src/CMakeFiles/main.dir
