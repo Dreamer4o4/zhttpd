@@ -12,7 +12,6 @@
 #include "Log.h"
 #include "BlockingQueue.h"
 
-
 namespace base{
 
 class Epoll : boost::noncopyable{
@@ -53,7 +52,7 @@ class Epoll : boost::noncopyable{
             return (epoll_ctl(epfd_, EPOLL_CTL_DEL, fd, &ev) == 0) ? true : false;
         }
 
-        int wait(int time, BlockingQueue<int> &que){
+        int wait(int time, std::queue<int> &que){
             int num = epoll_wait(epfd_, &*events_.begin(), static_cast<int>(events_.size()), time);
 
             if(num > 0){
@@ -67,11 +66,26 @@ class Epoll : boost::noncopyable{
                     events_.resize(events_.size()*2);
                 }
 
-            }else if(num == 0){
-                LOG_INFO("nothing happened");
             }
 
             return num;
+        }
+
+        /*
+        **  only for acceptor
+        */
+        int wait(int time, int fd){
+            int num = epoll_wait(epfd_, &*events_.begin(), static_cast<int>(events_.size()), time);
+
+            if(num > 0){
+                for(int i=0; i<num; i++){
+                    if((events_[i].events & EPOLLIN) && (events_[i].data.fd == fd)){
+                        return 1;
+                    }
+                }
+            }
+
+            return 0;
         }
 
     private:

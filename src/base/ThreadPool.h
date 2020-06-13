@@ -13,7 +13,7 @@ namespace base{
 
 class ThreadPool : boost::noncopyable{
     public:
-        typedef std::function<void (std::shared_ptr<struct data>)> Functor;
+        typedef std::function<void (int)> Functor;
 
         ThreadPool(int size, Functor func) : thread_num_(size),
                                     thread_function_(func),

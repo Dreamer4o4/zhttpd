@@ -13,7 +13,7 @@ namespace base{
 
 class TcpServer : boost::noncopyable{
     public:
-        typedef std::function<void ()> Functor;
+        typedef std::function<void (char *, char *)> Functor;
         
         TcpServer(std::string port, int pool_size, Functor func) : acceptor_(new Acceptor(std::bind(&TcpServer::accept_func, this, std::placeholders::_1), port)),
                                                             request_callback_(func){
@@ -23,43 +23,29 @@ class TcpServer : boost::noncopyable{
         void start(){
             thread_pool_->start();
             acceptor_->start();
-
-            fprintf(stderr, "server start\r\n");
-            
-            for(;;);
         }
     private:
-        void thread_func(std::shared_ptr<struct data> arg){
+        void thread_func(int arg){
             char buff[rec_buff_len];
             ssize_t len = 0;
             ssize_t rev_len = 0;
             memset(buff, 0, rec_buff_len);
-            while((rev_len = recv(arg->fd, &buff[len], rec_buff_len-len, 0)) > 0){
-                len += rev_len;
-            }
-            printf("rec:%s\r\n", buff);
 
             char response[200];
             memset(response, 0, 200);
 
-            request_callback_();
+            while((rev_len = recv(arg, &buff[len], rec_buff_len-len, 0)) > 0){
+                len += rev_len;
+            }
+            // fprintf(stderr, "rec:%s\r\n", buff);
 
-            strcat(response,"HTTP/1.0 200 OK\r\n");
-            strcat(response,"Server: zhttp\r\n");
-            strcat(response,"Content-Type: text/html\r\n");
-            strcat(response,"\r\n");
-            strcat(response,"<HTML>\r\n");
-            strcat(response,"<HEAD><TITLE>zh</TITLE></HEAD>\r\n");
+            request_callback_(buff, response);
 
-            strcat(response,"<BODY>\r\n");
-            strcat(response,"<h1>HELLO</h1>\r\n");
-            strcat(response,"</BODY>\r\n");
+            send(arg, response, sizeof(response), 0);
+            // fprintf(stderr, "resp:%s\r\n\r\n\r\n",response);
 
-            strcat(response,"</HTML>\r\n");
-            send(arg->fd, response, sizeof(response), 0);
-            fprintf(stderr, "resp:%s\r\n",response);
-
-            shutdown(arg->fd, SHUT_WR);
+            // shutdown(arg, SHUT_WR);
+            close(arg);
         }
 
         void accept_func(std::shared_ptr<struct data> arg){

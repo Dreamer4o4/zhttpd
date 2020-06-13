@@ -10,7 +10,6 @@
 
 #include "Data.h"
 #include "Epoll.h"
-#include "BlockingQueue.h"
 
 namespace base{
 
@@ -19,8 +18,7 @@ class Acceptor : boost::noncopyable{
         typedef std::function<void (std::shared_ptr<struct data>)> Functor;
 
         Acceptor(Functor func, const std::string &port) : callback_(func),
-                                                        ep_(),
-                                                        listen_queue_(){
+                                                        ep_(){
             accept_fd_ = get_resuse_sock(port.c_str());
             listen();
         }
@@ -41,7 +39,6 @@ class Acceptor : boost::noncopyable{
         int accept_fd_;
         Functor callback_;
         Epoll ep_;
-        BlockingQueue<int> listen_queue_;
         std::shared_ptr<std::thread> thread_;
 };
 

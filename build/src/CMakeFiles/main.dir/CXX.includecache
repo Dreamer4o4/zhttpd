@@ -23,8 +23,6 @@ Data.h
 ../src/base/Data.h
 Epoll.h
 ../src/base/Epoll.h
-BlockingQueue.h
-../src/base/BlockingQueue.h
 
 ../src/base/BlockingQueue.h
 boost/noncopyable.hpp
@@ -87,12 +85,20 @@ functional
 -
 map
 -
-BlockingQueue.h
-../src/base/BlockingQueue.h
+queue
+-
+string
+-
+sstream
+-
 Epoll.h
 ../src/base/Epoll.h
 Data.h
 ../src/base/Data.h
+Log.h
+../src/base/Log.h
+BlockingQueue.h
+../src/base/BlockingQueue.h
 
 ../src/base/TcpServer.h
 boost/noncopyable.hpp
@@ -133,8 +139,6 @@ ctime
 /home/zh/Downloads/zhttpd/src/test/main.cpp
 Log.h
 /home/zh/Downloads/zhttpd/src/test/Log.h
-BlockingQueue.h
-/home/zh/Downloads/zhttpd/src/test/BlockingQueue.h
 ThreadPool.h
 /home/zh/Downloads/zhttpd/src/test/ThreadPool.h
 TaskThread.h

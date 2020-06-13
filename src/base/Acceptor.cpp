@@ -13,6 +13,12 @@
 
 using namespace base;
 
+
+/*
+**  option for get peer address which reduced performance
+*/
+// #define GET_PEER_ADDR
+
 int Acceptor::get_resuse_sock(const char *port){
     int sock, optval = 1;
     struct addrinfo hint;
@@ -74,35 +80,38 @@ void Acceptor::listen(){
 }
 
 void Acceptor::start(){
-    thread_ = std::make_shared<std::thread> (std::bind(&Acceptor::run, this));
+    run();
 }
 
 void Acceptor::run(){
 
     for(;;){
-        ep_.wait(overtime, listen_queue_);
-
-        while(listen_queue_.size() != 0){
-            struct sockaddr_storage client_addr;
-            socklen_t client_addr_len = sizeof(struct sockaddr_storage);
-
-            int tmp = listen_queue_.pop();
-
-            int client_fd = accept(tmp, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len);
-            if(client_fd <= 0){
-                continue;
-            }
-
-            std::shared_ptr<struct data> client_info = std::make_shared<struct data>(client_fd);
-            if(getnameinfo(reinterpret_cast<struct sockaddr*>(&client_addr), client_addr_len, client_info->client_host, NI_MAXHOST, client_info->client_server, NI_MAXSERV, 0) != 0){
-                strcpy(client_info->client_host, "unkonw");
-                strcpy(client_info->client_server, "unkonw");
-            }
-
-            set_no_block(client_fd);
-
-            callback_(client_info);
+        if(ep_.wait(overtime, accept_fd_) == 0){
+            continue;
         }
+
+        struct sockaddr_storage client_addr;
+        socklen_t client_addr_len = sizeof(struct sockaddr_storage);
+
+        int client_fd = accept(accept_fd_, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len);
+        if(client_fd <= 0){
+            continue;
+        }
+
+        std::shared_ptr<struct data> client_info = std::make_shared<struct data>(client_fd);
+#ifdef  GET_PEER_ADDR
+        if(getnameinfo(reinterpret_cast<struct sockaddr*>(&client_addr), client_addr_len, client_info->client_host, NI_MAXHOST, client_info->client_server, NI_MAXSERV, 0) != 0){
+            strcpy(client_info->client_host, "unkonw");
+            strcpy(client_info->client_server, "unkonw");
+        }
+#else
+        strcpy(client_info->client_host, "unkonw");
+        strcpy(client_info->client_server, "unkonw");
+#endif
+
+        set_no_block(client_fd);
+
+        callback_(client_info);
 
     }
 }
