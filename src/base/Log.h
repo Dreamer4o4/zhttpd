@@ -2,9 +2,7 @@
 #define _LOG_
 
 #include <boost/noncopyable.hpp>
-#include <iostream>
-#include <string>
-#include <cstdio>
+
 
 #include "Time.h"
 
@@ -23,46 +21,13 @@ class Log : boost::noncopyable{
             return instance;
         }
         
-        void write(int level, std::string file, int line, std::string &msg){
-            std::string log(Time::get_now_time());
-
-            if(level == INFO){
-                log.append("[INFO] ");
-            }else if(level == WARN){
-                log.append("[WARN] ");
-            }else if(level == ERROR){
-                log.append("[ERROR] ");
-            }
-
-            log.append("filename:"+file+" ");
-            log.append("line:"+std::to_string(line)+"\n");
-
-            log.append(msg+"\n");
-
-            std::cout<<log<<std::endl;
-        }
+        void write(int level, std::string file, int line, std::string &msg);
         
-        void write(int level, std::string file, int line, std::string &&msg){
-            std::string log(Time::get_now_time());
-
-            if(level == INFO){
-                log.append("[INFO] ");
-            }else if(level == WARN){
-                log.append("[WARN] ");
-            }else if(level == ERROR){
-                log.append("[ERROR] ");
-            }
-
-            log.append("filename:"+file+" ");
-            log.append("line:"+std::to_string(line)+"\n");
-
-            log.append(msg+"\n");
-
-            std::cout<<log<<std::endl;
-        }
+        void write(int level, std::string file, int line, std::string &&msg);
 
     private:
         Log() = default;
+        
         ~Log() = default;
 };
 

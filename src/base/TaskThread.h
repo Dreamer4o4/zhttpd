@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-#include "Epoll.h"
+#include "EventLoop.h"
 #include "Data.h"
 #include "Log.h"
 #include "BlockingQueue.h"
@@ -19,13 +19,10 @@ namespace base{
 
 class TaskThread : boost::noncopyable{
     public:
-        typedef std::function<void (int)> Functor;
-
-        TaskThread(const Functor &func) : thread_function_(func),
-                                        que_(),
-                                        ep_(),
-                                        started_(false),
-                                        tid(0){
+        TaskThread() : que_(),
+                    loop_(NULL),
+                    started_(false),
+                    tid(0){
             ;
         }
 
@@ -50,35 +47,23 @@ class TaskThread : boost::noncopyable{
             started_ = true;
         }
 
-        bool add_task(std::shared_ptr<struct data> info, int type){
-            return ep_.add_event(info->fd, type);
+        EventLoop *get_thread_loop(){
+            return loop_;
         }
 
     private:
         void run(){
-            for(;;){
-                if(ep_.wait(overtime, que_) > 0 || que_.size() != 0){
-                    while(que_.size()){
-                        int fd = que_.front();
-                        que_.pop();
-                        ep_.rm_event(fd);
-
-                        thread_function_(fd);
-
-                    }
-                }else{
-                    std::string info = "tid:" + std::to_string(tid) + " still alive";
-                    LOG_INFO(info);
-                }
-            }
+            EventLoop loop;
+            loop_ = &loop;
+            loop.loop();
+            loop_ = NULL;
         }
 
         static const int overtime = 10000;
 
-        Functor thread_function_;
         std::shared_ptr<std::thread> thread_;
         std::queue<int> que_;
-        Epoll ep_;
+        EventLoop *loop_;
         bool started_;
         std::map<int, std::shared_ptr<struct data>> map_;
         unsigned long long tid;

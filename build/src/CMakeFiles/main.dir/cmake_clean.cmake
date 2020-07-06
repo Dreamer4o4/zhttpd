@@ -2,6 +2,10 @@ file(REMOVE_RECURSE
   "../../main"
   "../../main.pdb"
   "CMakeFiles/main.dir/base/Acceptor.cpp.o"
+  "CMakeFiles/main.dir/base/Channel.cpp.o"
+  "CMakeFiles/main.dir/base/Epoll.cpp.o"
+  "CMakeFiles/main.dir/base/EventLoop.cpp.o"
+  "CMakeFiles/main.dir/base/Log.cpp.o"
   "CMakeFiles/main.dir/test/main.cpp.o"
 )
 

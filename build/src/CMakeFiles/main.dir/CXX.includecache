@@ -23,6 +23,10 @@ Data.h
 ../src/base/Data.h
 Epoll.h
 ../src/base/Epoll.h
+EventLoop.h
+../src/base/EventLoop.h
+Channel.h
+../src/base/Channel.h
 
 ../src/base/BlockingQueue.h
 boost/noncopyable.hpp
@@ -33,6 +37,18 @@ mutex
 -
 condition_variable
 -
+
+../src/base/Channel.h
+boost/noncopyable.hpp
+-
+functional
+-
+memory
+-
+sys/epoll.h
+-
+Data.h
+../src/base/Data.h
 
 ../src/base/Data.h
 netdb.h
@@ -45,31 +61,27 @@ cstring
 ../src/base/Epoll.h
 boost/noncopyable.hpp
 -
-sys/epoll.h
--
-cstring
--
-memory
--
 vector
 -
 queue
 -
-iostream
+
+../src/base/EventLoop.h
+boost/noncopyable.hpp
 -
-Log.h
-../src/base/Log.h
-BlockingQueue.h
-../src/base/BlockingQueue.h
+functional
+-
+vector
+-
+memory
+-
+Epoll.h
+../src/base/Epoll.h
+Channel.h
+../src/base/Channel.h
 
 ../src/base/Log.h
 boost/noncopyable.hpp
--
-iostream
--
-string
--
-cstdio
 -
 Time.h
 ../src/base/Time.h
@@ -91,8 +103,8 @@ string
 -
 sstream
 -
-Epoll.h
-../src/base/Epoll.h
+EventLoop.h
+../src/base/EventLoop.h
 Data.h
 ../src/base/Data.h
 Log.h
@@ -113,6 +125,8 @@ Acceptor.h
 ../src/base/Acceptor.h
 ThreadPool.h
 ../src/base/ThreadPool.h
+Channel.h
+../src/base/Channel.h
 
 ../src/base/ThreadPool.h
 boost/noncopyable.hpp
@@ -147,6 +161,10 @@ Data.h
 /home/zh/Downloads/zhttpd/src/test/Data.h
 TcpServer.h
 /home/zh/Downloads/zhttpd/src/test/TcpServer.h
+EventLoop.h
+/home/zh/Downloads/zhttpd/src/test/EventLoop.h
+Acceptor.h
+/home/zh/Downloads/zhttpd/src/test/Acceptor.h
 iostream
 -
 string
@@ -154,5 +172,7 @@ string
 stdlib.h
 -
 netdb.h
+-
+functional
 -
 

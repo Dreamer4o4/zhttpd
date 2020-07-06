@@ -8,16 +8,22 @@
 namespace base{
 
 struct data{
-    data(int fd_) : fd(fd_){
-        // memset(client_host, 0, sizeof(client_host));
-        // memset(client_server, 0, sizeof(client_server));
-        strcpy(client_host, "unknow321");
-        strcpy(client_server, "unknow123");
+    data(){
+        memset(client_host, 0, sizeof(client_host));
+        memset(client_port, 0, sizeof(client_port));
+        strcpy(client_host, "unknow");
+        strcpy(client_port, "unknow");
     }
 
-    int fd;
+    data(const char* host, const char* port){
+        memset(client_host, 0, sizeof(client_host));
+        memset(client_port, 0, sizeof(client_port));
+        strcpy(client_host, host);
+        strcpy(client_port, port);
+    }
+
     char client_host[NI_MAXHOST];
-    char client_server[NI_MAXSERV];
+    char client_port[NI_MAXSERV];
 
 };
 

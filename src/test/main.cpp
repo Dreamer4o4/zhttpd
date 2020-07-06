@@ -3,11 +3,14 @@
 #include "TaskThread.h"
 #include "Data.h"
 #include "TcpServer.h"
+#include "EventLoop.h"
+#include "Acceptor.h"
 
 #include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <netdb.h>
+#include <functional>
 
 void fun(char *recv, char *response){
     strcat(response,"HTTP/1.0 200 OK\r\n");
@@ -24,7 +27,7 @@ void fun(char *recv, char *response){
     strcat(response,"</HTML>\r\n");
 }
 
-
+typedef std::function<void (int , struct data &)> Functor;
 
 int main(int argc, char *argv[]){
     std::string port("4000");
@@ -33,8 +36,12 @@ int main(int argc, char *argv[]){
     if(argc > 1){
         th_num = atoi(argv[1]);
     }
-    base::TcpServer hello(port, th_num, std::bind(&fun, std::placeholders::_1, std::placeholders::_2));
+
+    base::EventLoop loop;
+    base::TcpServer hello(&loop, port, th_num, std::bind(&fun, std::placeholders::_1, std::placeholders::_2));
     hello.start();
+    std::cout<<"server start"<<std::endl;
+    loop.loop();
 
     return 0;
 }

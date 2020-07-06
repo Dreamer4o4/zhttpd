@@ -3,16 +3,44 @@
 
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Acceptor.cpp
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Acceptor.h
-src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/BlockingQueue.h
+src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Channel.h
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Data.h
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/EventLoop.h
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Log.h
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o: ../src/base/Time.h
 
+src/CMakeFiles/main.dir/base/Channel.cpp.o: ../src/base/Channel.cpp
+src/CMakeFiles/main.dir/base/Channel.cpp.o: ../src/base/Channel.h
+src/CMakeFiles/main.dir/base/Channel.cpp.o: ../src/base/Data.h
+src/CMakeFiles/main.dir/base/Channel.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/main.dir/base/Channel.cpp.o: ../src/base/EventLoop.h
+
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Channel.h
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Data.h
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Epoll.cpp
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Log.h
+src/CMakeFiles/main.dir/base/Epoll.cpp.o: ../src/base/Time.h
+
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/Channel.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/Data.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/EventLoop.cpp
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/EventLoop.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/Log.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o: ../src/base/Time.h
+
+src/CMakeFiles/main.dir/base/Log.cpp.o: ../src/base/Log.cpp
+src/CMakeFiles/main.dir/base/Log.cpp.o: ../src/base/Log.h
+src/CMakeFiles/main.dir/base/Log.cpp.o: ../src/base/Time.h
+
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/Acceptor.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/BlockingQueue.h
+src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/Channel.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/Data.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/EventLoop.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/Log.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/TaskThread.h
 src/CMakeFiles/main.dir/test/main.cpp.o: ../src/base/TcpServer.h

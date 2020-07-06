@@ -17,7 +17,7 @@ using namespace base;
 /*
 **  option for get peer address which reduced performance
 */
-// #define GET_PEER_ADDR
+#define GET_PEER_ADDR
 
 int Acceptor::get_resuse_sock(const char *port){
     int sock, optval = 1;
@@ -39,18 +39,18 @@ int Acceptor::get_resuse_sock(const char *port){
     }
 
     for(tmp = res; tmp != NULL; res = res->ai_next, tmp = res){
-        sock = socket(tmp->ai_family, tmp->ai_socktype, tmp->ai_protocol);
+        sock = ::socket(tmp->ai_family, tmp->ai_socktype, tmp->ai_protocol);
         if(sock < 0){
             continue;
         }
 
         if(setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) == -1){
-            close(sock);
+            ::close(sock);
             continue;
         }
 
         if(bind(sock, tmp->ai_addr, tmp->ai_addrlen) != 0){
-            close(sock);
+            ::close(sock);
             continue;
         }
 
@@ -70,50 +70,39 @@ void Acceptor::listen(){
         return ;
     }
 
-    if(::listen(accept_fd_, 10) != 0){
-        close(accept_fd_);
+    if(::listen(accept_fd_, 5) != 0){
+        ::close(accept_fd_);
         LOG_ERROR("listen failed");
         return ;
     }
 
-    ep_.add_event(accept_fd_, Epoll::LT);
 }
 
-void Acceptor::start(){
-    run();
-}
 
-void Acceptor::run(){
+void Acceptor::handle_read(Channel *channel){
 
-    for(;;){
-        if(ep_.wait(overtime, accept_fd_) == 0){
-            continue;
-        }
+    struct sockaddr_storage client_addr;
+    socklen_t client_addr_len = sizeof(struct sockaddr_storage);
 
-        struct sockaddr_storage client_addr;
-        socklen_t client_addr_len = sizeof(struct sockaddr_storage);
+    int client_fd = ::accept(accept_fd_, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len);
+    if(client_fd <= 0){
+        LOG_ERROR("accept error");
+        return ;
+    }
 
-        int client_fd = accept(accept_fd_, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len);
-        if(client_fd <= 0){
-            continue;
-        }
-
-        std::shared_ptr<struct data> client_info = std::make_shared<struct data>(client_fd);
+    struct data client_info;
 #ifdef  GET_PEER_ADDR
-        if(getnameinfo(reinterpret_cast<struct sockaddr*>(&client_addr), client_addr_len, client_info->client_host, NI_MAXHOST, client_info->client_server, NI_MAXSERV, 0) != 0){
-            strcpy(client_info->client_host, "unkonw");
-            strcpy(client_info->client_server, "unkonw");
-        }
-#else
-        strcpy(client_info->client_host, "unkonw");
-        strcpy(client_info->client_server, "unkonw");
+    getnameinfo(reinterpret_cast<struct sockaddr*>(&client_addr), client_addr_len, client_info.client_host, NI_MAXHOST, client_info.client_port, NI_MAXSERV, 0);
 #endif
 
-        set_no_block(client_fd);
+    set_no_block(client_fd);
 
-        callback_(client_info);
-
+    if(callback_){
+        callback_(client_fd, client_info);
+    }else{
+        ::close(client_fd);
     }
+
 }
 
 void Acceptor::set_no_block(int sock){

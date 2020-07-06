@@ -4,16 +4,44 @@
 src/CMakeFiles/main.dir/base/Acceptor.cpp.o
  /home/zh/Downloads/zhttpd/src/base/Acceptor.cpp
  /home/zh/Downloads/zhttpd/src/base/Acceptor.h
- /home/zh/Downloads/zhttpd/src/base/BlockingQueue.h
+ /home/zh/Downloads/zhttpd/src/base/Channel.h
  /home/zh/Downloads/zhttpd/src/base/Data.h
  /home/zh/Downloads/zhttpd/src/base/Epoll.h
+ /home/zh/Downloads/zhttpd/src/base/EventLoop.h
+ /home/zh/Downloads/zhttpd/src/base/Log.h
+ /home/zh/Downloads/zhttpd/src/base/Time.h
+src/CMakeFiles/main.dir/base/Channel.cpp.o
+ /home/zh/Downloads/zhttpd/src/base/Channel.cpp
+ /home/zh/Downloads/zhttpd/src/base/Channel.h
+ /home/zh/Downloads/zhttpd/src/base/Data.h
+ /home/zh/Downloads/zhttpd/src/base/Epoll.h
+ /home/zh/Downloads/zhttpd/src/base/EventLoop.h
+src/CMakeFiles/main.dir/base/Epoll.cpp.o
+ /home/zh/Downloads/zhttpd/src/base/Channel.h
+ /home/zh/Downloads/zhttpd/src/base/Data.h
+ /home/zh/Downloads/zhttpd/src/base/Epoll.cpp
+ /home/zh/Downloads/zhttpd/src/base/Epoll.h
+ /home/zh/Downloads/zhttpd/src/base/Log.h
+ /home/zh/Downloads/zhttpd/src/base/Time.h
+src/CMakeFiles/main.dir/base/EventLoop.cpp.o
+ /home/zh/Downloads/zhttpd/src/base/Channel.h
+ /home/zh/Downloads/zhttpd/src/base/Data.h
+ /home/zh/Downloads/zhttpd/src/base/Epoll.h
+ /home/zh/Downloads/zhttpd/src/base/EventLoop.cpp
+ /home/zh/Downloads/zhttpd/src/base/EventLoop.h
+ /home/zh/Downloads/zhttpd/src/base/Log.h
+ /home/zh/Downloads/zhttpd/src/base/Time.h
+src/CMakeFiles/main.dir/base/Log.cpp.o
+ /home/zh/Downloads/zhttpd/src/base/Log.cpp
  /home/zh/Downloads/zhttpd/src/base/Log.h
  /home/zh/Downloads/zhttpd/src/base/Time.h
 src/CMakeFiles/main.dir/test/main.cpp.o
  ../src/base/Acceptor.h
  ../src/base/BlockingQueue.h
+ ../src/base/Channel.h
  ../src/base/Data.h
  ../src/base/Epoll.h
+ ../src/base/EventLoop.h
  ../src/base/Log.h
  ../src/base/TaskThread.h
  ../src/base/TcpServer.h

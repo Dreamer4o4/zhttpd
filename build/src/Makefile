@@ -152,6 +152,114 @@ base/Acceptor.cpp.s:
 	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Acceptor.cpp.s
 .PHONY : base/Acceptor.cpp.s
 
+base/Channel.o: base/Channel.cpp.o
+
+.PHONY : base/Channel.o
+
+# target to build an object file
+base/Channel.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.o
+.PHONY : base/Channel.cpp.o
+
+base/Channel.i: base/Channel.cpp.i
+
+.PHONY : base/Channel.i
+
+# target to preprocess a source file
+base/Channel.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.i
+.PHONY : base/Channel.cpp.i
+
+base/Channel.s: base/Channel.cpp.s
+
+.PHONY : base/Channel.s
+
+# target to generate assembly for a file
+base/Channel.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.s
+.PHONY : base/Channel.cpp.s
+
+base/Epoll.o: base/Epoll.cpp.o
+
+.PHONY : base/Epoll.o
+
+# target to build an object file
+base/Epoll.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.o
+.PHONY : base/Epoll.cpp.o
+
+base/Epoll.i: base/Epoll.cpp.i
+
+.PHONY : base/Epoll.i
+
+# target to preprocess a source file
+base/Epoll.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.i
+.PHONY : base/Epoll.cpp.i
+
+base/Epoll.s: base/Epoll.cpp.s
+
+.PHONY : base/Epoll.s
+
+# target to generate assembly for a file
+base/Epoll.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.s
+.PHONY : base/Epoll.cpp.s
+
+base/EventLoop.o: base/EventLoop.cpp.o
+
+.PHONY : base/EventLoop.o
+
+# target to build an object file
+base/EventLoop.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.o
+.PHONY : base/EventLoop.cpp.o
+
+base/EventLoop.i: base/EventLoop.cpp.i
+
+.PHONY : base/EventLoop.i
+
+# target to preprocess a source file
+base/EventLoop.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.i
+.PHONY : base/EventLoop.cpp.i
+
+base/EventLoop.s: base/EventLoop.cpp.s
+
+.PHONY : base/EventLoop.s
+
+# target to generate assembly for a file
+base/EventLoop.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.s
+.PHONY : base/EventLoop.cpp.s
+
+base/Log.o: base/Log.cpp.o
+
+.PHONY : base/Log.o
+
+# target to build an object file
+base/Log.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.o
+.PHONY : base/Log.cpp.o
+
+base/Log.i: base/Log.cpp.i
+
+.PHONY : base/Log.i
+
+# target to preprocess a source file
+base/Log.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.i
+.PHONY : base/Log.cpp.i
+
+base/Log.s: base/Log.cpp.s
+
+.PHONY : base/Log.s
+
+# target to generate assembly for a file
+base/Log.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.s
+.PHONY : base/Log.cpp.s
+
 test/main.o: test/main.cpp.o
 
 .PHONY : test/main.o
@@ -191,6 +299,18 @@ help:
 	@echo "... base/Acceptor.o"
 	@echo "... base/Acceptor.i"
 	@echo "... base/Acceptor.s"
+	@echo "... base/Channel.o"
+	@echo "... base/Channel.i"
+	@echo "... base/Channel.s"
+	@echo "... base/Epoll.o"
+	@echo "... base/Epoll.i"
+	@echo "... base/Epoll.s"
+	@echo "... base/EventLoop.o"
+	@echo "... base/EventLoop.i"
+	@echo "... base/EventLoop.s"
+	@echo "... base/Log.o"
+	@echo "... base/Log.i"
+	@echo "... base/Log.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"
