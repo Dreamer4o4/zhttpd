@@ -47,6 +47,8 @@ memory
 -
 sys/epoll.h
 -
+string
+-
 Data.h
 ../src/base/Data.h
 
@@ -119,6 +121,8 @@ memory
 -
 string
 -
+map
+-
 cstdio
 -
 Acceptor.h
@@ -127,6 +131,8 @@ ThreadPool.h
 ../src/base/ThreadPool.h
 Channel.h
 ../src/base/Channel.h
+Data.h
+../src/base/Data.h
 
 ../src/base/ThreadPool.h
 boost/noncopyable.hpp

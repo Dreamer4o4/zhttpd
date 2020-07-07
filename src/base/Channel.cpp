@@ -10,7 +10,8 @@ Channel::Channel(EventLoop* loop, int fd__)
     fd_(fd__),
     revents_(0),
     event_(0),
-    addr_(){
+    addr_(),
+    name_("unknow"){
         ;
 }
 
@@ -74,6 +75,14 @@ char* Channel::addr_ip(){
 
 char* Channel::addr_port(){
     return addr_.client_port;
+}
+
+void Channel::set_name(std::string &name){
+    name_ = std::move(name);
+}
+
+std::string Channel::name(){
+    return name_;
 }
 
 void Channel::add(){

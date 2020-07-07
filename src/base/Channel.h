@@ -5,6 +5,7 @@
 #include <functional>
 #include <memory>
 #include <sys/epoll.h>
+#include <string>
 
 #include "Data.h"
 
@@ -34,6 +35,8 @@ class Channel : boost::noncopyable{
         void set_addr(data addr);
         char* addr_ip();
         char* addr_port();
+        void set_name(std::string &name);
+        std::string name();
 
         void add();
         void remove();
@@ -48,6 +51,7 @@ class Channel : boost::noncopyable{
         int revents_;       //events that epoll wait return
         uint32_t event_;    // set the events that epoll listens to
         struct data addr_;
+        std::string name_;
 
         Functor read_callback;
         Functor write_callback;
