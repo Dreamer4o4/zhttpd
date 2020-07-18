@@ -2,10 +2,11 @@
 
 #include "Channel.h"
 #include "EventLoop.h"
+#include "Log.h"
 
 using namespace base;
 
-Channel::Channel(EventLoop* loop, int fd__)
+Channel::Channel(std::weak_ptr<EventLoop> loop, int fd__)
   : loop_(loop),
     fd_(fd__),
     revents_(0),
@@ -23,32 +24,34 @@ int Channel::fd(){
     return fd_;
 }
 
-void Channel::setReadCallback(Functor &&cb){ 
+void Channel::set_read_callback(Functor &&cb){ 
     read_callback = std::move(cb); 
 }
 
-void Channel::setWriteCallback(Functor &&cb){ 
+void Channel::set_write_callback(Functor &&cb){ 
     write_callback = std::move(cb); 
 }
 
-void Channel::setCloseCallback(Functor &&cb){ 
+void Channel::set_close_callback(Functor &&cb){ 
     close_callback = std::move(cb); 
 }
 
-void Channel::handleEvent()
+void Channel::handle_event()
 {
+    std::shared_ptr<Channel> cur = shared_from_this();
+
     if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN))
     {
-        if (close_callback) close_callback(this);
+        if (close_callback) close_callback(cur);
     }
-    // if (revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
-    if (revents_ & EPOLLIN)
+    if (revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
+    // if (revents_ & EPOLLIN)
     {
-        if (read_callback) read_callback(this);
+        if (read_callback) read_callback(cur);
     }
     if (revents_ & EPOLLOUT)
     {
-        if (write_callback) write_callback(this);
+        if (write_callback) write_callback(cur);
     }
 }
 
@@ -64,7 +67,7 @@ uint32_t Channel::event(){
     return event_;
 }
 
-void Channel::set_addr(data addr){
+void Channel::set_addr(data &addr){
     strcpy(addr_.client_host, addr.client_host);
     strcpy(addr_.client_port, addr.client_port);
 }
@@ -85,10 +88,6 @@ std::string Channel::name(){
     return name_;
 }
 
-void Channel::add(){
-    loop_->add_channel(this);
-}
-
-void Channel::remove(){
-    loop_->remove_channel(this);
+std::weak_ptr<EventLoop> Channel::get_loop(){
+    return loop_;
 }

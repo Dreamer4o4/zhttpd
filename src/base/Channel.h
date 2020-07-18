@@ -13,40 +13,42 @@ namespace base{
 
 class EventLoop;
 
-class Channel : boost::noncopyable{
+class Channel : boost::noncopyable, public std::enable_shared_from_this<Channel>{
     public:
-        typedef std::function<void(Channel *)> Functor;
+        typedef std::function<void(std::shared_ptr<Channel> &)> Functor;
 
-        Channel(EventLoop *loop, int fd);
+        Channel(std::weak_ptr<EventLoop> loop, int fd);
         ~Channel();
 
         int fd();
 
-        void setReadCallback(Functor &&cb);
-        void setWriteCallback(Functor &&cb);
-        void setCloseCallback(Functor &&cb);
+        void set_read_callback(Functor &&cb);
+        void set_write_callback(Functor &&cb);
+        void set_close_callback(Functor &&cb);
 
-        void handleEvent();
+        void handle_event();
         void set_revents(int revt);
 
         void set_event(uint32_t event);
         uint32_t event();
 
-        void set_addr(data addr);
+        void set_addr(data &addr);
         char* addr_ip();
         char* addr_port();
         void set_name(std::string &name);
         std::string name();
 
-        void add();
-        void remove();
+        std::weak_ptr<EventLoop> get_loop();
+
+        // void add();
+        // void remove();
 
         static const int read_event = EPOLLIN;
         static const int read_event_ET = EPOLLIN | EPOLLET;
         static const int write_event = EPOLLOUT;
 
     private:
-        EventLoop *loop_;
+        std::weak_ptr<EventLoop> loop_;
         int fd_;
         int revents_;       //events that epoll wait return
         uint32_t event_;    // set the events that epoll listens to

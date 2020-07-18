@@ -12,7 +12,7 @@ class Channel;
 
 class Epoll : boost::noncopyable{
     private:
-        typedef std::vector<Channel*> ChannelList;
+        typedef std::vector<std::shared_ptr<Channel>> ChannelList;
 
     public:
         enum Type{
@@ -24,9 +24,9 @@ class Epoll : boost::noncopyable{
 
         ~Epoll();
 
-        bool add_event(Channel *channel);
+        bool add_event(std::shared_ptr<Channel> &channel);
 
-        bool rm_event(Channel *channel);
+        bool rm_event(std::shared_ptr<Channel> &channel);
 
         int wait(int time, ChannelList &channels);
 

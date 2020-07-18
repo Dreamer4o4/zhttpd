@@ -32,16 +32,16 @@ typedef std::function<void (int , struct data &)> Functor;
 int main(int argc, char *argv[]){
     std::string port("4000");
 
-    int th_num = 1;
+    int th_num = 8;
     if(argc > 1){
         th_num = atoi(argv[1]);
     }
 
-    base::EventLoop loop;
-    base::TcpServer hello(&loop, port, th_num, std::bind(&fun, std::placeholders::_1, std::placeholders::_2));
+    std::shared_ptr<base::EventLoop> loop = std::make_shared<base::EventLoop>();
+    base::TcpServer hello(loop, port, th_num, std::bind(&fun, std::placeholders::_1, std::placeholders::_2));
     hello.start();
     std::cout<<"server start"<<std::endl;
-    loop.loop();
+    loop->loop();
 
     return 0;
 }

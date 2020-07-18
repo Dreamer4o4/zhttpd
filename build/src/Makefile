@@ -260,6 +260,33 @@ base/Log.cpp.s:
 	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.s
 .PHONY : base/Log.cpp.s
 
+base/TcpServer.o: base/TcpServer.cpp.o
+
+.PHONY : base/TcpServer.o
+
+# target to build an object file
+base/TcpServer.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.o
+.PHONY : base/TcpServer.cpp.o
+
+base/TcpServer.i: base/TcpServer.cpp.i
+
+.PHONY : base/TcpServer.i
+
+# target to preprocess a source file
+base/TcpServer.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.i
+.PHONY : base/TcpServer.cpp.i
+
+base/TcpServer.s: base/TcpServer.cpp.s
+
+.PHONY : base/TcpServer.s
+
+# target to generate assembly for a file
+base/TcpServer.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.s
+.PHONY : base/TcpServer.cpp.s
+
 test/main.o: test/main.cpp.o
 
 .PHONY : test/main.o
@@ -311,6 +338,9 @@ help:
 	@echo "... base/Log.o"
 	@echo "... base/Log.i"
 	@echo "... base/Log.s"
+	@echo "... base/TcpServer.o"
+	@echo "... base/TcpServer.i"
+	@echo "... base/TcpServer.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

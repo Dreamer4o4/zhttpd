@@ -4,7 +4,6 @@
 #include <boost/noncopyable.hpp>
 #include <thread>
 #include <mutex>
-#include <functional>
 #include <map>
 #include <queue>
 #include <string>
@@ -20,7 +19,6 @@ namespace base{
 class TaskThread : boost::noncopyable{
     public:
         TaskThread() : que_(),
-                    loop_(NULL),
                     started_(false),
                     tid(0){
             ;
@@ -47,23 +45,23 @@ class TaskThread : boost::noncopyable{
             started_ = true;
         }
 
-        EventLoop *get_thread_loop(){
+        std::weak_ptr<EventLoop> get_thread_loop(){
             return loop_;
         }
 
     private:
         void run(){
-            EventLoop loop;
-            loop_ = &loop;
-            loop.loop();
-            loop_ = NULL;
+            std::shared_ptr<EventLoop> loop = std::make_shared<EventLoop> ();
+            loop_ = loop;
+            loop->loop();
+            loop_.reset();
         }
 
         static const int overtime = 10000;
 
         std::shared_ptr<std::thread> thread_;
         std::queue<int> que_;
-        EventLoop *loop_;
+        std::weak_ptr<EventLoop> loop_;
         bool started_;
         std::map<int, std::shared_ptr<struct data>> map_;
         unsigned long long tid;

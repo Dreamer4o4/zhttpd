@@ -5,7 +5,7 @@
 
 using namespace base;
 
-void Log::write(int level, std::string file, int line, std::string &msg){
+void Log::write(int level, std::string file, std::string func, int line, std::string &msg){
     std::string log(Time::get_now_time());
 
     if(level == INFO){
@@ -17,6 +17,7 @@ void Log::write(int level, std::string file, int line, std::string &msg){
     }
 
     log.append("filename:"+file+" ");
+    log.append("function:"+func+" ");
     log.append("line:"+std::to_string(line)+"\n");
 
     log.append(msg+"\n");
@@ -24,7 +25,7 @@ void Log::write(int level, std::string file, int line, std::string &msg){
     std::cout<<log<<std::endl;
 }
 
-void Log::write(int level, std::string file, int line, std::string &&msg){
+void Log::write(int level, std::string file, std::string func, int line, std::string &&msg){
     std::string log(Time::get_now_time());
 
     if(level == INFO){

@@ -5,6 +5,7 @@
 #include <functional>
 #include <vector>
 #include <memory>
+#include <mutex>
 
 #include "Epoll.h"
 #include "Channel.h"
@@ -21,20 +22,23 @@ class EventLoop : boost::noncopyable{
         void loop();
         void quit();
 
-        // void runInLoop(Functor cb);
-        // void queueInLoop(Functor cb);
+        void run_in_loop(Functor cb);
 
-        void add_channel(Channel* channel);
-        void remove_channel(Channel* channel);
+        void add_channel(std::shared_ptr<Channel> &channel);
+        void remove_channel(std::shared_ptr<Channel> &channel);
 
     private:
-        typedef std::vector<Channel*> ChannelList;
+        void do_pending_functors();
+
+        typedef std::vector<std::shared_ptr<Channel>> ChannelList;
         const int overtime = 1000;
 
         bool looping_;
         bool quit_;
         Epoll poller_;
-        ChannelList channels_;
+        ChannelList active_channels_;
+        std::mutex mutex_;
+        std::vector<Functor> pending_functors_;
 };
 
 
