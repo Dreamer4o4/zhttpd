@@ -1,11 +1,13 @@
 #include <cstdio>
 #include <iostream>
+#include <sys/stat.h>
 
 #include "RequestAndResponse.h"
+#include "Log.h"
 
 using namespace base;
 
-static std::map<int , std::string> http_status{
+const std::map<int , std::string> Response::http_status_{
                                         {100, "Continue"},
                                         {200, "OK"},
                                         {301, "Moved Permanently"},
@@ -65,7 +67,9 @@ std::string Request::get_line(std::string &msg){
 }
 
 
-Response::Response() : status_code_(404){
+Response::Response() : status_code_(404),
+                        file_info_(),
+                        send_flag_(0){
     set_header("Server", "zhttp");
     set_header("Connection", "Close");
     set_header("Content-Type", "text/html");
@@ -76,23 +80,58 @@ void Response::set_keep_alive(){
 }
 
 void Response::set_status_code(int code){
-    status_code_ = code;
+    if(http_status_.count(status_code_)){
+        status_code_ = code;
+    }else{
+        status_code_ = 501;
+    }
 }
 
 void Response::set_body(std::string &body){
+    if(send_flag_ != 0){
+        LOG_WARN("has set body or file");
+    }
+    send_flag_ = 1;
+
     body_ = std::move(body);
     set_header("Content-Length", std::to_string(body_.size()));
+}
+
+void Response::set_file(std::string &&file_name){
+    if(send_flag_ != 0){
+        LOG_WARN("has set body or file");
+    }
+    send_flag_ = 2;
+
+    file_info_.file_name += file_name;
+    struct stat statbuf;
+    if(stat(file_info_.file_name.c_str(), &statbuf)==0){
+        set_header("Content-Length", std::to_string(statbuf.st_size));
+    }else{
+        file_info_.file_name = "./src/html/test.html";
+        stat(file_info_.file_name.c_str(), &statbuf);
+        set_header("Content-Length", std::to_string(statbuf.st_size));
+    }
+    file_info_.file_size = statbuf.st_size;
 }
 
 void Response::set_header(std::string &&key, std::string &&val){
     headers_[key] = val;
 }
 
+bool Response::is_send_file(){
+    return (send_flag_ == 2);
+}
+
+Response::file_info Response::file(){
+    return file_info_;
+}
+
 std::string Response::message(){
     std::string msg;
     char buf[64];
 
-    snprintf(buf, sizeof(buf), "HTTP/1.1 %d %s\r\n", status_code_, http_status[status_code_].c_str());
+    snprintf(buf, sizeof(buf), "HTTP/1.1 %d %s\r\n", status_code_, http_status_.find(status_code_)->second.c_str());
     msg = std::string(buf);
 
     for (const auto& header : headers_)
@@ -102,7 +141,10 @@ std::string Response::message(){
     }
 
     msg += "\r\n";
-    msg += body_;
+
+    if(!is_send_file()){
+        msg += body_;
+    }
 
     return msg;
 }

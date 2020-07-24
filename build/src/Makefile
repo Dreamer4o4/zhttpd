@@ -260,33 +260,6 @@ base/Log.cpp.s:
 	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.s
 .PHONY : base/Log.cpp.s
 
-base/RequestAndResponse.o: base/RequestAndResponse.cpp.o
-
-.PHONY : base/RequestAndResponse.o
-
-# target to build an object file
-base/RequestAndResponse.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o
-.PHONY : base/RequestAndResponse.cpp.o
-
-base/RequestAndResponse.i: base/RequestAndResponse.cpp.i
-
-.PHONY : base/RequestAndResponse.i
-
-# target to preprocess a source file
-base/RequestAndResponse.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.i
-.PHONY : base/RequestAndResponse.cpp.i
-
-base/RequestAndResponse.s: base/RequestAndResponse.cpp.s
-
-.PHONY : base/RequestAndResponse.s
-
-# target to generate assembly for a file
-base/RequestAndResponse.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.s
-.PHONY : base/RequestAndResponse.cpp.s
-
 base/Socket.o: base/Socket.cpp.o
 
 .PHONY : base/Socket.o
@@ -341,6 +314,33 @@ base/TcpServer.cpp.s:
 	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.s
 .PHONY : base/TcpServer.cpp.s
 
+http/RequestAndResponse.o: http/RequestAndResponse.cpp.o
+
+.PHONY : http/RequestAndResponse.o
+
+# target to build an object file
+http/RequestAndResponse.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o
+.PHONY : http/RequestAndResponse.cpp.o
+
+http/RequestAndResponse.i: http/RequestAndResponse.cpp.i
+
+.PHONY : http/RequestAndResponse.i
+
+# target to preprocess a source file
+http/RequestAndResponse.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.i
+.PHONY : http/RequestAndResponse.cpp.i
+
+http/RequestAndResponse.s: http/RequestAndResponse.cpp.s
+
+.PHONY : http/RequestAndResponse.s
+
+# target to generate assembly for a file
+http/RequestAndResponse.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.s
+.PHONY : http/RequestAndResponse.cpp.s
+
 test/main.o: test/main.cpp.o
 
 .PHONY : test/main.o
@@ -392,15 +392,15 @@ help:
 	@echo "... base/Log.o"
 	@echo "... base/Log.i"
 	@echo "... base/Log.s"
-	@echo "... base/RequestAndResponse.o"
-	@echo "... base/RequestAndResponse.i"
-	@echo "... base/RequestAndResponse.s"
 	@echo "... base/Socket.o"
 	@echo "... base/Socket.i"
 	@echo "... base/Socket.s"
 	@echo "... base/TcpServer.o"
 	@echo "... base/TcpServer.i"
 	@echo "... base/TcpServer.s"
+	@echo "... http/RequestAndResponse.o"
+	@echo "... http/RequestAndResponse.i"
+	@echo "... http/RequestAndResponse.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

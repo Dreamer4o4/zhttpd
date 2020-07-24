@@ -6,5 +6,5 @@ CXX_FLAGS = -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zh/Downloads/zhttpd/src/base 
+CXX_INCLUDES = -I/home/zh/Downloads/zhttpd/src/base -I/home/zh/Downloads/zhttpd/src/http -I/home/zh/Downloads/zhttpd/src/redis 
 

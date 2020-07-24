@@ -12,7 +12,6 @@
 #include "EventLoop.h"
 #include "Data.h"
 #include "Log.h"
-#include "BlockingQueue.h"
 
 namespace base{
 
@@ -37,8 +36,7 @@ class TaskThread : boost::noncopyable{
             std::string stid = oss.str();
             tid = std::stoull(stid);
 
-            std::string info = "tid:" + std::to_string(tid) + " start";
-            LOG_INFO(info);
+            // LOG_INFO("tid: %lld start", tid);
 
             thread_->detach();
             

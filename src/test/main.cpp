@@ -18,11 +18,22 @@ void fun(base::Request &req, base::Response &res){
     body += "<HTML>\r\n\r\n";
 
     res.set_keep_alive();
-    res.set_body(body);
+    res.set_status_code(200);
+    // res.set_body(body);
+    res.set_file("test.html");
+
 }
 
+void test(){
+    char s[] = "hello";
+    LOG_INFO("%s", s);
+    while(1);
+}
 
 int main(int argc, char *argv[]){
+
+    // test();
+
     std::string port("4000");
 
     int th_num = 8;

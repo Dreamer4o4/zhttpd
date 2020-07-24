@@ -9,9 +9,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zh/Downloads/zhttpd/src/base/Epoll.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/Epoll.cpp.o"
   "/home/zh/Downloads/zhttpd/src/base/EventLoop.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/EventLoop.cpp.o"
   "/home/zh/Downloads/zhttpd/src/base/Log.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/Log.cpp.o"
-  "/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o"
   "/home/zh/Downloads/zhttpd/src/base/Socket.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/Socket.cpp.o"
   "/home/zh/Downloads/zhttpd/src/base/TcpServer.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/TcpServer.cpp.o"
+  "/home/zh/Downloads/zhttpd/src/http/RequestAndResponse.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
   "/home/zh/Downloads/zhttpd/src/test/main.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/test/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -19,6 +19,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src/base"
+  "../src/http"
+  "../src/redis"
   )
 
 # Targets to which this target links.

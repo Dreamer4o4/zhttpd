@@ -135,22 +135,9 @@ src/CMakeFiles/server.dir/base/Log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/Log.cpp.s"
 	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/Downloads/zhttpd/src/base/Log.cpp -o CMakeFiles/server.dir/base/Log.cpp.s
 
-src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o: src/CMakeFiles/server.dir/flags.make
-src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o: ../src/base/RequestAndResponse.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o"
-	cd /home/zh/Downloads/zhttpd/build/src && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/RequestAndResponse.cpp.o -c /home/zh/Downloads/zhttpd/src/base/RequestAndResponse.cpp
-
-src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/RequestAndResponse.cpp.i"
-	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zh/Downloads/zhttpd/src/base/RequestAndResponse.cpp > CMakeFiles/server.dir/base/RequestAndResponse.cpp.i
-
-src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/RequestAndResponse.cpp.s"
-	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/Downloads/zhttpd/src/base/RequestAndResponse.cpp -o CMakeFiles/server.dir/base/RequestAndResponse.cpp.s
-
 src/CMakeFiles/server.dir/base/Socket.cpp.o: src/CMakeFiles/server.dir/flags.make
 src/CMakeFiles/server.dir/base/Socket.cpp.o: ../src/base/Socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/server.dir/base/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/server.dir/base/Socket.cpp.o"
 	cd /home/zh/Downloads/zhttpd/build/src && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Socket.cpp.o -c /home/zh/Downloads/zhttpd/src/base/Socket.cpp
 
 src/CMakeFiles/server.dir/base/Socket.cpp.i: cmake_force
@@ -163,7 +150,7 @@ src/CMakeFiles/server.dir/base/Socket.cpp.s: cmake_force
 
 src/CMakeFiles/server.dir/base/TcpServer.cpp.o: src/CMakeFiles/server.dir/flags.make
 src/CMakeFiles/server.dir/base/TcpServer.cpp.o: ../src/base/TcpServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/server.dir/base/TcpServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/server.dir/base/TcpServer.cpp.o"
 	cd /home/zh/Downloads/zhttpd/build/src && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/TcpServer.cpp.o -c /home/zh/Downloads/zhttpd/src/base/TcpServer.cpp
 
 src/CMakeFiles/server.dir/base/TcpServer.cpp.i: cmake_force
@@ -174,6 +161,19 @@ src/CMakeFiles/server.dir/base/TcpServer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/TcpServer.cpp.s"
 	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/Downloads/zhttpd/src/base/TcpServer.cpp -o CMakeFiles/server.dir/base/TcpServer.cpp.s
 
+src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o: src/CMakeFiles/server.dir/flags.make
+src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o: ../src/http/RequestAndResponse.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
+	cd /home/zh/Downloads/zhttpd/build/src && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/http/RequestAndResponse.cpp.o -c /home/zh/Downloads/zhttpd/src/http/RequestAndResponse.cpp
+
+src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/http/RequestAndResponse.cpp.i"
+	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zh/Downloads/zhttpd/src/http/RequestAndResponse.cpp > CMakeFiles/server.dir/http/RequestAndResponse.cpp.i
+
+src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/http/RequestAndResponse.cpp.s"
+	cd /home/zh/Downloads/zhttpd/build/src && g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/Downloads/zhttpd/src/http/RequestAndResponse.cpp -o CMakeFiles/server.dir/http/RequestAndResponse.cpp.s
+
 # Object files for target server
 server_OBJECTS = \
 "CMakeFiles/server.dir/test/main.cpp.o" \
@@ -182,9 +182,9 @@ server_OBJECTS = \
 "CMakeFiles/server.dir/base/Epoll.cpp.o" \
 "CMakeFiles/server.dir/base/EventLoop.cpp.o" \
 "CMakeFiles/server.dir/base/Log.cpp.o" \
-"CMakeFiles/server.dir/base/RequestAndResponse.cpp.o" \
 "CMakeFiles/server.dir/base/Socket.cpp.o" \
-"CMakeFiles/server.dir/base/TcpServer.cpp.o"
+"CMakeFiles/server.dir/base/TcpServer.cpp.o" \
+"CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
@@ -195,9 +195,9 @@ server_EXTERNAL_OBJECTS =
 ../server: src/CMakeFiles/server.dir/base/Epoll.cpp.o
 ../server: src/CMakeFiles/server.dir/base/EventLoop.cpp.o
 ../server: src/CMakeFiles/server.dir/base/Log.cpp.o
-../server: src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o
 ../server: src/CMakeFiles/server.dir/base/Socket.cpp.o
 ../server: src/CMakeFiles/server.dir/base/TcpServer.cpp.o
+../server: src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o
 ../server: src/CMakeFiles/server.dir/build.make
 ../server: src/CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zh/Downloads/zhttpd/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../../server"

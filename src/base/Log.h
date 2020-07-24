@@ -3,7 +3,6 @@
 
 #include <boost/noncopyable.hpp>
 
-
 #include "Time.h"
 
 namespace base{
@@ -21,19 +20,17 @@ class Log : boost::noncopyable{
             return instance;
         }
         
-        void write(int level, std::string file, std::string func, int line, std::string &msg);
+        void write(int level, std::string file, std::string func, int line, const char *msg, ...);
         
-        void write(int level, std::string file, std::string func, int line, std::string &&msg);
-
     private:
         Log() = default;
         
         ~Log() = default;
 };
 
-#define LOG_INFO(msg)   base::Log::get_instance().write(base::Log::INFO, __FILE__, __FUNCTION__, __LINE__, msg)
-#define LOG_WARN(msg)   base::Log::get_instance().write(base::Log::WARN, __FILE__, __FUNCTION__, __LINE__, msg)
-#define LOG_ERROR(msg)   base::Log::get_instance().write(base::Log::ERROR, __FILE__, __FUNCTION__, __LINE__, msg)
+#define LOG_INFO(msg, ...)   base::Log::get_instance().write(base::Log::INFO, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
+#define LOG_WARN(msg, ...)   base::Log::get_instance().write(base::Log::WARN, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
+#define LOG_ERROR(msg, ...)   base::Log::get_instance().write(base::Log::ERROR, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
 
 }
 

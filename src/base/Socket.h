@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "Data.h"
+#include "RequestAndResponse.h"
 
 namespace base{
 
@@ -32,6 +33,7 @@ public:
     std::string read();
     void write(std::string &msg);
     void write(std::string &&msg);
+    void send_file(Response::file_info info);
 
     static const int RD = SHUT_RD;
     static const int WR = SHUT_WR;

@@ -1,65 +1,32 @@
-# zhttpd
-refer to muduo      
-one loop one thread     
+# zhttpd - multithreaded lightweight C++ Server
 
+使用线程池与I/O多路复用(epoll)搭建的一个Reactor模式的TcpServer，one thread one loop，支持长链接,并发性能良好。    
+基于TcpServer搭建了HttpServer，实现了对请求报文的解析与组装响应报文。   
+目前只实现了用户的登陆与注册，使用redis来存储用户信息。
 
-# bench result  
-cmd:           
-ab -n 100000 -r -k -c 1000 127.0.0.1:4000/        
+* 整个服务器几乎没有用到锁，减少了竞态的产生
+* 使用sendfile来发送响应正文，减少拷贝次数，零拷贝
+
+##  Building
+安装redis       
 ```
-This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 10000 requests
-Completed 20000 requests
-Completed 30000 requests
-Completed 40000 requests
-Completed 50000 requests
-Completed 60000 requests
-Completed 70000 requests
-Completed 80000 requests
-Completed 90000 requests
-Completed 100000 requests
-Finished 100000 requests
-
-
-Server Software:        zhttp
-Server Hostname:        127.0.0.1
-Server Port:            4000
-
-Document Path:          /
-Document Length:        82 bytes
-
-Concurrency Level:      1000
-Time taken for tests:   1.896 seconds
-Complete requests:      100000
-Failed requests:        0
-Keep-Alive requests:    100000
-Total transferred:      18500000 bytes
-HTML transferred:       8200000 bytes
-Requests per second:    52745.18 [#/sec] (mean)
-Time per request:       18.959 [ms] (mean)
-Time per request:       0.019 [ms] (mean, across all concurrent requests)
-Transfer rate:          9529.16 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   2.4      0      25
-Processing:     4   19   1.7     18      43
-Waiting:        0   19   1.7     18      43
-Total:          4   19   3.4     18      49
-
-Percentage of the requests served within a certain time (ms)
-  50%     18
-  66%     19
-  75%     19
-  80%     19
-  90%     20
-  95%     20
-  98%     23
-  99%     43
- 100%     49 (longest request)
-
+sudo apt-get install redis-server
+```     
+安装C++的hiredis库  
 ```
+sudo apt-get install libhiredis-dev
+```     
+编译
+```
+./mk.sh
+```   
+
+##  Runing
+num表示开启多少个工作线程
+```
+./server num
+```
+
+* [测试信息]()    
+* [代码结构]()
+

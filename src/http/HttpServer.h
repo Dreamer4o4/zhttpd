@@ -1,13 +1,15 @@
 #ifndef _HTTPSERVER_
 #define _HTTPSERVER_
 
+#include <boost/noncopyable.hpp>
+
 #include "TcpServer.h"
 #include "RequestAndResponse.h"
 
 
 namespace base{
 
-class HttpServer{
+class HttpServer : boost::noncopyable{
 public:
     typedef std::function<void (Request &, Response &)> Functor;
 
@@ -26,6 +28,9 @@ private:
         http_callback_(req, res);
 
         channel->sock()->write(res.message());
+        if(res.is_send_file()){
+            channel->sock()->send_file(res.file());
+        }
     }
 
     Functor http_callback_;

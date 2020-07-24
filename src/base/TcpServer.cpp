@@ -36,6 +36,8 @@ void TcpServer::start(){
         return ;
     }
 
+    LOG_INFO("server start");
+
     loop_->loop();
 }
 

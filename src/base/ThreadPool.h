@@ -25,6 +25,7 @@ class ThreadPool : boost::noncopyable{
             for(int i=0; i<thread_num_; i++){
                 threads_[i]->start();
             }
+            LOG_INFO("%d threads start", thread_num_);
         }
 
         std::weak_ptr<EventLoop> &get_next_loop(){

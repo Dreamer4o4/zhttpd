@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <boost/noncopyable.hpp>
 
 namespace base{
 
-class Request{
+class Request : boost::noncopyable{
 public:
     Request(std::string &req);
 
@@ -30,8 +31,18 @@ private:
     std::map<std::string, std::string> headers_;
 };
 
-class Response{
+class Response : boost::noncopyable{
 public:
+    struct file_info{
+        file_info() : file_name("./src/html/"),
+                        file_size(0){
+                            ;
+        }
+
+        std::string file_name;
+        long int file_size;
+    };
+
     Response();
 
     std::string message();
@@ -43,12 +54,21 @@ public:
     void set_content_type(std::string type);
 
     void set_body(std::string &body);
+
+    void set_file(std::string &&file_name);
+
+    bool is_send_file();
+
+    file_info file();
 private:
     void set_header(std::string &&key, std::string &&val);
 
     int status_code_;
     std::string body_;
     std::map<std::string, std::string> headers_;
+    static const std::map<int , std::string> http_status_;
+    file_info file_info_;
+    int send_flag_;
 };
 
 }

@@ -6,9 +6,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/base/Epoll.cpp.o"
   "CMakeFiles/server.dir/base/EventLoop.cpp.o"
   "CMakeFiles/server.dir/base/Log.cpp.o"
-  "CMakeFiles/server.dir/base/RequestAndResponse.cpp.o"
   "CMakeFiles/server.dir/base/Socket.cpp.o"
   "CMakeFiles/server.dir/base/TcpServer.cpp.o"
+  "CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
   "CMakeFiles/server.dir/test/main.cpp.o"
 )
 
