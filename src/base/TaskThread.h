@@ -45,7 +45,7 @@ class TaskThread : boost::noncopyable{
             started_ = true;
         }
 
-        std::weak_ptr<EventLoop> get_thread_loop(){
+        std::weak_ptr<EventLoop> &get_thread_loop(){
             return loop_;
         }
 

@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/base/Epoll.cpp.o"
   "CMakeFiles/main.dir/base/EventLoop.cpp.o"
   "CMakeFiles/main.dir/base/Log.cpp.o"
+  "CMakeFiles/main.dir/base/RequestAndResponse.cpp.o"
+  "CMakeFiles/main.dir/base/Socket.cpp.o"
   "CMakeFiles/main.dir/base/TcpServer.cpp.o"
   "CMakeFiles/main.dir/test/main.cpp.o"
 )

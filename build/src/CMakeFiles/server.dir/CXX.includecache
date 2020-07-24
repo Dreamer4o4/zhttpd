@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.cpp
+cstdio
+-
+iostream
+-
+RequestAndResponse.h
+/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.h
+
+/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.h
+string
+-
+vector
+-
+map
+-
+

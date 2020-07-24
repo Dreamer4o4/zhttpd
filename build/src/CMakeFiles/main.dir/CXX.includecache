@@ -6,26 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/zh/Downloads/zhttpd/src/base/Acceptor.cpp
-sys/types.h
--
-sys/socket.h
--
-netdb.h
--
-string
--
-cstdio
--
-iostream
--
-errno.h
--
-Acceptor.h
-/home/zh/Downloads/zhttpd/src/base/Acceptor.h
-Log.h
-/home/zh/Downloads/zhttpd/src/base/Log.h
-
 /home/zh/Downloads/zhttpd/src/base/Acceptor.h
 unistd.h
 -
@@ -71,6 +51,8 @@ string
 -
 Data.h
 /home/zh/Downloads/zhttpd/src/base/Data.h
+Socket.h
+/home/zh/Downloads/zhttpd/src/base/Socket.h
 
 /home/zh/Downloads/zhttpd/src/base/Data.h
 netdb.h
@@ -110,6 +92,20 @@ boost/noncopyable.hpp
 Time.h
 /home/zh/Downloads/zhttpd/src/base/Time.h
 
+/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.h
+string
+-
+
+/home/zh/Downloads/zhttpd/src/base/Socket.h
+boost/noncopyable.hpp
+-
+string
+-
+memory
+-
+Data.h
+/home/zh/Downloads/zhttpd/src/base/Data.h
+
 /home/zh/Downloads/zhttpd/src/base/TaskThread.h
 boost/noncopyable.hpp
 -
@@ -143,7 +139,7 @@ string
 -
 cstdio
 -
-iostream
+mutex
 -
 TcpServer.h
 /home/zh/Downloads/zhttpd/src/base/TcpServer.h
@@ -165,6 +161,10 @@ Channel.h
 /home/zh/Downloads/zhttpd/src/base/Channel.h
 Data.h
 /home/zh/Downloads/zhttpd/src/base/Data.h
+Socket.h
+/home/zh/Downloads/zhttpd/src/base/Socket.h
+RequestAndResponse.h
+/home/zh/Downloads/zhttpd/src/base/RequestAndResponse.h
 
 /home/zh/Downloads/zhttpd/src/base/ThreadPool.h
 boost/noncopyable.hpp

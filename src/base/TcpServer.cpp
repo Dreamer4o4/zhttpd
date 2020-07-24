@@ -2,60 +2,64 @@
 #include <fcntl.h>
 #include <string>
 #include <cstdio>
-#include <iostream>
+#include <mutex>
 
 
 #include "TcpServer.h"
 
 using namespace base;
 
-TcpServer::TcpServer(std::weak_ptr<EventLoop> loop, std::string port, int pool_size, Functor func) : loop_(loop),
-                                                            acceptor_(new Acceptor(loop_, std::bind(&TcpServer::accept_func, this, std::placeholders::_1, std::placeholders::_2), port)),
-                                                            request_callback_(func),
+
+/*
+**  option for non_block I/O, EPOLL_ET
+*/
+#define NONBLOCK
+
+TcpServer::TcpServer(std::string port, int pool_size, Functor &&func) : loop_(std::make_shared<EventLoop>()),
+                                                            acceptor_(std::make_unique<Acceptor>(loop_, std::bind(&TcpServer::accept_func, this, std::placeholders::_1), port)),
+                                                            request_callback_(std::move(func)),
+                                                            thread_pool_(std::make_shared<ThreadPool> (pool_size)),
                                                             channel_id(1){
-    thread_pool_ = std::make_shared<ThreadPool> (pool_size);
+    ;
 }
 
 TcpServer::~TcpServer(){
-    ;
+    for(auto &channel : channel_map){
+        channel_close(channel.second);
+    }
 }
 
 void TcpServer::start(){
     thread_pool_->start();
-    acceptor_->start();
+    
+    if(acceptor_->start() != 0){
+        return ;
+    }
+
+    loop_->loop();
 }
 
 void TcpServer::channel_read(std::shared_ptr<Channel> &channel){
-    char buff[rec_buff_len];
-    ssize_t len = 0;
-    ssize_t rev_len = 0;
-    memset(buff, 0, rec_buff_len);
+    std::string msg = std::move(channel->sock()->read());
 
-    char response[200];
-    memset(response, 0, 200);
-
-    while((rev_len = recv(channel->fd(), &buff[len], rec_buff_len-len, 0)) > 0){
-        len += rev_len;
+    if(msg.size() > 0){
+        request_callback_(msg, channel);
+    }else{
+        channel_close(channel);
     }
-    // fprintf(stderr, "rec:%s\r\n", buff);
-
-    request_callback_(buff, response);
-
-    send(channel->fd(), response, sizeof(response), 0);
-    // fprintf(stderr, "resp:%s\r\n\r\n\r\n",response);
-
-    channel_close(channel);
 }
 
 void TcpServer::channel_close(std::shared_ptr<Channel> &channel){
     auto loop = channel->get_loop().lock();
     loop->remove_channel(channel);
 
-    shutdown(channel->fd(), SHUT_WR);
-    // close(channel->fd());
+    // channel->sock()->close();
 
-    auto server_loop = loop_.lock();
-    server_loop->run_in_loop(std::bind(&TcpServer::delete_channel_in_map, this, channel.get()));
+    // {
+    //     std::lock_guard<std::mutex> guard(mutex_);
+    //     channel_map.erase(channel->name());
+    // }
+    loop_->run_in_loop(std::bind(&TcpServer::delete_channel_in_map, this, channel.get()));
 
     channel.reset();
 }
@@ -64,40 +68,28 @@ void TcpServer::delete_channel_in_map(Channel *channel){
     channel_map.erase(channel->name());
 }
 
-void TcpServer::set_no_block(int sock){
-    int flags;
-    
-    flags = fcntl(sock, F_GETFL, NULL);
-
-    flags |= O_NONBLOCK;
-
-    fcntl(sock, F_SETFL, flags);
-
-}
-
-
-void TcpServer::accept_func(int fd, struct data &info){
+void TcpServer::accept_func(std::unique_ptr<Socket> &&client_sock){
     std::weak_ptr<EventLoop> next_loop;
     while(next_loop.expired()){
         next_loop = thread_pool_->get_next_loop();
     }
 
-    set_no_block(fd);
-
-    std::shared_ptr<base::Channel> channel_ptr = std::make_shared<base::Channel>(next_loop, fd);
-    channel_ptr->set_addr(info);
-    channel_ptr->set_event(Channel::read_event_ET);
+    std::string name = std::string(client_sock->get_sock_info().client_host) + "-" +std::string(client_sock->get_sock_info().client_port) + "-" + std::to_string(channel_id);
+    std::shared_ptr<base::Channel> channel_ptr = std::make_shared<base::Channel>(next_loop, std::move(client_sock));
+    channel_ptr->set_event(Channel::read_event);
+#ifdef NONBLOCK
+    channel_ptr->set_non_block();
+#endif
     channel_ptr->set_read_callback(std::bind(&TcpServer::channel_read, this, std::placeholders::_1));
     channel_ptr->set_close_callback(std::bind(&TcpServer::channel_close, this, std::placeholders::_1));
-    std::string name = std::string(info.client_host) + "-" +std::string(info.client_port) + "-" + std::to_string(channel_id);
+    // {
+    //     std::lock_guard<std::mutex> guard(mutex_);
+    //     channel_map[name] = channel_ptr;
+    // }
     channel_map[name] = channel_ptr;
     channel_ptr->set_name(name);
     auto loop = next_loop.lock();
     loop->add_channel(channel_ptr);
     channel_id++;
 
-    // loop->remove_channel(channel_ptr);
-    // close(channel_ptr->fd());
-    // channel_map.erase(channel_ptr->name());
-    // channel_ptr.reset();
 }

@@ -22,6 +22,21 @@ struct data{
         strcpy(client_port, port);
     }
 
+    data(const data &info){
+        memset(client_host, 0, sizeof(client_host));
+        memset(client_port, 0, sizeof(client_port));
+        strcpy(client_host, info.client_host);
+        strcpy(client_port, info.client_port);
+    }
+
+    data & operator =(const data &info){
+        memset(client_host, 0, sizeof(client_host));
+        memset(client_port, 0, sizeof(client_port));
+        strcpy(client_host, info.client_host);
+        strcpy(client_port, info.client_port);
+        return *this;
+    }
+
     char client_host[NI_MAXHOST];
     char client_port[NI_MAXSERV];
 

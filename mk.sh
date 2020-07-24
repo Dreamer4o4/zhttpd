@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm main
+rm server
 
 cd build
 
@@ -8,6 +8,6 @@ cmake .. && make
 
 cd ../
 
-if [ -f "main" ]; 
-    then    ./main
+if [ -f "server" ]; 
+    then    ./server
 fi

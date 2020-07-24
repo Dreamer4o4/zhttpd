@@ -13,12 +13,11 @@ namespace base{
 
 class ThreadPool : boost::noncopyable{
     public:
-
         ThreadPool(int size) : thread_num_(size),
                                 started_(false),
                                 next_(0){
             for(int i=0; i<thread_num_; i++){
-                threads_.push_back( std::unique_ptr<TaskThread> (new TaskThread()) );
+                threads_.push_back( std::make_unique<TaskThread>() );
             }
         }
 
@@ -28,8 +27,8 @@ class ThreadPool : boost::noncopyable{
             }
         }
 
-        std::weak_ptr<EventLoop> get_next_loop(){
-            std::weak_ptr<EventLoop> next_loop = threads_[next_]->get_thread_loop();
+        std::weak_ptr<EventLoop> &get_next_loop(){
+            std::weak_ptr<EventLoop> &next_loop = threads_[next_]->get_thread_loop();
             next_++;
             if(next_ >= thread_num_){
                 next_ = 0;

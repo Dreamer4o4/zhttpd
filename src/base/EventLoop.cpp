@@ -53,7 +53,7 @@ void EventLoop::do_pending_functors(){
         functors_.swap(pending_functors_);
     }
 
-    for(auto functor : functors_){
+    for(auto &functor : functors_){
         functor();
     }
     functors_.clear();

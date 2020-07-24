@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/main.dir/rule:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
-.PHONY : src/CMakeFiles/main.dir/rule
+src/CMakeFiles/server.dir/rule:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
+.PHONY : src/CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-main: src/CMakeFiles/main.dir/rule
+server: src/CMakeFiles/server.dir/rule
 
-.PHONY : main
+.PHONY : server
 
 # fast build rule for target.
-main/fast:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
-.PHONY : main/fast
+server/fast:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 base/Acceptor.o: base/Acceptor.cpp.o
 
@@ -131,7 +131,7 @@ base/Acceptor.o: base/Acceptor.cpp.o
 
 # target to build an object file
 base/Acceptor.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Acceptor.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.o
 .PHONY : base/Acceptor.cpp.o
 
 base/Acceptor.i: base/Acceptor.cpp.i
@@ -140,7 +140,7 @@ base/Acceptor.i: base/Acceptor.cpp.i
 
 # target to preprocess a source file
 base/Acceptor.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Acceptor.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.i
 .PHONY : base/Acceptor.cpp.i
 
 base/Acceptor.s: base/Acceptor.cpp.s
@@ -149,7 +149,7 @@ base/Acceptor.s: base/Acceptor.cpp.s
 
 # target to generate assembly for a file
 base/Acceptor.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Acceptor.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.s
 .PHONY : base/Acceptor.cpp.s
 
 base/Channel.o: base/Channel.cpp.o
@@ -158,7 +158,7 @@ base/Channel.o: base/Channel.cpp.o
 
 # target to build an object file
 base/Channel.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.o
 .PHONY : base/Channel.cpp.o
 
 base/Channel.i: base/Channel.cpp.i
@@ -167,7 +167,7 @@ base/Channel.i: base/Channel.cpp.i
 
 # target to preprocess a source file
 base/Channel.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.i
 .PHONY : base/Channel.cpp.i
 
 base/Channel.s: base/Channel.cpp.s
@@ -176,7 +176,7 @@ base/Channel.s: base/Channel.cpp.s
 
 # target to generate assembly for a file
 base/Channel.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Channel.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.s
 .PHONY : base/Channel.cpp.s
 
 base/Epoll.o: base/Epoll.cpp.o
@@ -185,7 +185,7 @@ base/Epoll.o: base/Epoll.cpp.o
 
 # target to build an object file
 base/Epoll.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.o
 .PHONY : base/Epoll.cpp.o
 
 base/Epoll.i: base/Epoll.cpp.i
@@ -194,7 +194,7 @@ base/Epoll.i: base/Epoll.cpp.i
 
 # target to preprocess a source file
 base/Epoll.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.i
 .PHONY : base/Epoll.cpp.i
 
 base/Epoll.s: base/Epoll.cpp.s
@@ -203,7 +203,7 @@ base/Epoll.s: base/Epoll.cpp.s
 
 # target to generate assembly for a file
 base/Epoll.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Epoll.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.s
 .PHONY : base/Epoll.cpp.s
 
 base/EventLoop.o: base/EventLoop.cpp.o
@@ -212,7 +212,7 @@ base/EventLoop.o: base/EventLoop.cpp.o
 
 # target to build an object file
 base/EventLoop.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.o
 .PHONY : base/EventLoop.cpp.o
 
 base/EventLoop.i: base/EventLoop.cpp.i
@@ -221,7 +221,7 @@ base/EventLoop.i: base/EventLoop.cpp.i
 
 # target to preprocess a source file
 base/EventLoop.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.i
 .PHONY : base/EventLoop.cpp.i
 
 base/EventLoop.s: base/EventLoop.cpp.s
@@ -230,7 +230,7 @@ base/EventLoop.s: base/EventLoop.cpp.s
 
 # target to generate assembly for a file
 base/EventLoop.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/EventLoop.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.s
 .PHONY : base/EventLoop.cpp.s
 
 base/Log.o: base/Log.cpp.o
@@ -239,7 +239,7 @@ base/Log.o: base/Log.cpp.o
 
 # target to build an object file
 base/Log.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.o
 .PHONY : base/Log.cpp.o
 
 base/Log.i: base/Log.cpp.i
@@ -248,7 +248,7 @@ base/Log.i: base/Log.cpp.i
 
 # target to preprocess a source file
 base/Log.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.i
 .PHONY : base/Log.cpp.i
 
 base/Log.s: base/Log.cpp.s
@@ -257,8 +257,62 @@ base/Log.s: base/Log.cpp.s
 
 # target to generate assembly for a file
 base/Log.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/Log.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.s
 .PHONY : base/Log.cpp.s
+
+base/RequestAndResponse.o: base/RequestAndResponse.cpp.o
+
+.PHONY : base/RequestAndResponse.o
+
+# target to build an object file
+base/RequestAndResponse.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.o
+.PHONY : base/RequestAndResponse.cpp.o
+
+base/RequestAndResponse.i: base/RequestAndResponse.cpp.i
+
+.PHONY : base/RequestAndResponse.i
+
+# target to preprocess a source file
+base/RequestAndResponse.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.i
+.PHONY : base/RequestAndResponse.cpp.i
+
+base/RequestAndResponse.s: base/RequestAndResponse.cpp.s
+
+.PHONY : base/RequestAndResponse.s
+
+# target to generate assembly for a file
+base/RequestAndResponse.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/RequestAndResponse.cpp.s
+.PHONY : base/RequestAndResponse.cpp.s
+
+base/Socket.o: base/Socket.cpp.o
+
+.PHONY : base/Socket.o
+
+# target to build an object file
+base/Socket.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.o
+.PHONY : base/Socket.cpp.o
+
+base/Socket.i: base/Socket.cpp.i
+
+.PHONY : base/Socket.i
+
+# target to preprocess a source file
+base/Socket.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.i
+.PHONY : base/Socket.cpp.i
+
+base/Socket.s: base/Socket.cpp.s
+
+.PHONY : base/Socket.s
+
+# target to generate assembly for a file
+base/Socket.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.s
+.PHONY : base/Socket.cpp.s
 
 base/TcpServer.o: base/TcpServer.cpp.o
 
@@ -266,7 +320,7 @@ base/TcpServer.o: base/TcpServer.cpp.o
 
 # target to build an object file
 base/TcpServer.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.o
 .PHONY : base/TcpServer.cpp.o
 
 base/TcpServer.i: base/TcpServer.cpp.i
@@ -275,7 +329,7 @@ base/TcpServer.i: base/TcpServer.cpp.i
 
 # target to preprocess a source file
 base/TcpServer.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.i
 .PHONY : base/TcpServer.cpp.i
 
 base/TcpServer.s: base/TcpServer.cpp.s
@@ -284,7 +338,7 @@ base/TcpServer.s: base/TcpServer.cpp.s
 
 # target to generate assembly for a file
 base/TcpServer.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/base/TcpServer.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.s
 .PHONY : base/TcpServer.cpp.s
 
 test/main.o: test/main.cpp.o
@@ -293,7 +347,7 @@ test/main.o: test/main.cpp.o
 
 # target to build an object file
 test/main.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/test/main.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.o
 .PHONY : test/main.cpp.o
 
 test/main.i: test/main.cpp.i
@@ -302,7 +356,7 @@ test/main.i: test/main.cpp.i
 
 # target to preprocess a source file
 test/main.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/test/main.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.i
 .PHONY : test/main.cpp.i
 
 test/main.s: test/main.cpp.s
@@ -311,7 +365,7 @@ test/main.s: test/main.cpp.s
 
 # target to generate assembly for a file
 test/main.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/test/main.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.s
 .PHONY : test/main.cpp.s
 
 # Help Target
@@ -322,7 +376,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... main"
+	@echo "... server"
 	@echo "... base/Acceptor.o"
 	@echo "... base/Acceptor.i"
 	@echo "... base/Acceptor.s"
@@ -338,6 +392,12 @@ help:
 	@echo "... base/Log.o"
 	@echo "... base/Log.i"
 	@echo "... base/Log.s"
+	@echo "... base/RequestAndResponse.o"
+	@echo "... base/RequestAndResponse.i"
+	@echo "... base/RequestAndResponse.s"
+	@echo "... base/Socket.o"
+	@echo "... base/Socket.i"
+	@echo "... base/Socket.s"
 	@echo "... base/TcpServer.o"
 	@echo "... base/TcpServer.i"
 	@echo "... base/TcpServer.s"

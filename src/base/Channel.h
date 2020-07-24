@@ -8,6 +8,7 @@
 #include <string>
 
 #include "Data.h"
+#include "Socket.h"
 
 namespace base{
 
@@ -17,10 +18,10 @@ class Channel : boost::noncopyable, public std::enable_shared_from_this<Channel>
     public:
         typedef std::function<void(std::shared_ptr<Channel> &)> Functor;
 
-        Channel(std::weak_ptr<EventLoop> loop, int fd);
+        Channel(std::weak_ptr<EventLoop> loop, std::unique_ptr<Socket> &&fd);
         ~Channel();
 
-        int fd();
+        std::unique_ptr<Socket> &sock();
 
         void set_read_callback(Functor &&cb);
         void set_write_callback(Functor &&cb);
@@ -32,27 +33,21 @@ class Channel : boost::noncopyable, public std::enable_shared_from_this<Channel>
         void set_event(uint32_t event);
         uint32_t event();
 
-        void set_addr(data &addr);
-        char* addr_ip();
-        char* addr_port();
         void set_name(std::string &name);
-        std::string name();
+        std::string &name();
+
+        void set_non_block();
 
         std::weak_ptr<EventLoop> get_loop();
 
-        // void add();
-        // void remove();
-
         static const int read_event = EPOLLIN;
-        static const int read_event_ET = EPOLLIN | EPOLLET;
         static const int write_event = EPOLLOUT;
 
     private:
         std::weak_ptr<EventLoop> loop_;
-        int fd_;
+        std::unique_ptr<Socket> sock_;
         int revents_;       //events that epoll wait return
         uint32_t event_;    // set the events that epoll listens to
-        struct data addr_;
         std::string name_;
 
         Functor read_callback;
