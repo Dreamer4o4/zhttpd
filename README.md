@@ -27,6 +27,6 @@ num表示开启多少个工作线程
 ./server num
 ```
 
-* [测试信息]()    
-* [代码结构]()
+* [测试信息](https://github.com/zhgit-hub/zhttpd/blob/master/%E6%B5%8B%E8%AF%95%E4%BF%A1%E6%81%AF.md)    
+* [代码结构](https://github.com/zhgit-hub/zhttpd/blob/master/%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.md)
 
