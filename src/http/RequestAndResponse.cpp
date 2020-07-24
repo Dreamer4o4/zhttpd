@@ -108,6 +108,7 @@ void Response::set_file(std::string &&file_name){
     if(stat(file_info_.file_name.c_str(), &statbuf)==0){
         set_header("Content-Length", std::to_string(statbuf.st_size));
     }else{
+        set_status_code(404);
         file_info_.file_name = "./src/html/test.html";
         stat(file_info_.file_name.c_str(), &statbuf);
         set_header("Content-Length", std::to_string(statbuf.st_size));
