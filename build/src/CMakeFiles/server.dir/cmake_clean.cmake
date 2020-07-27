@@ -9,7 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/base/Socket.cpp.o"
   "CMakeFiles/server.dir/base/TcpServer.cpp.o"
   "CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
-  "CMakeFiles/server.dir/test/main.cpp.o"
+  "CMakeFiles/server.dir/test/server.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

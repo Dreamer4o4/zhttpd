@@ -1,6 +1,8 @@
 #!/bin/sh
 
-rm server
+if [ -f "server" ]; 
+    then    rm server
+fi
 
 cd build
 

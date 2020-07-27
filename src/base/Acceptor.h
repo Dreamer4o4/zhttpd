@@ -22,7 +22,6 @@ class Acceptor : boost::noncopyable{
         typedef std::function<void (std::unique_ptr<Socket> &&)> Functor;
 
         Acceptor(std::weak_ptr<EventLoop> loop, Functor &&func, const std::string &port);
-
         ~Acceptor();
 
         int start();

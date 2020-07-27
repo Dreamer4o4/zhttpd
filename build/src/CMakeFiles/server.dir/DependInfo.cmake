@@ -12,7 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zh/Downloads/zhttpd/src/base/Socket.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/Socket.cpp.o"
   "/home/zh/Downloads/zhttpd/src/base/TcpServer.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/base/TcpServer.cpp.o"
   "/home/zh/Downloads/zhttpd/src/http/RequestAndResponse.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o"
-  "/home/zh/Downloads/zhttpd/src/test/main.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/test/main.cpp.o"
+  "/home/zh/Downloads/zhttpd/src/test/server.cpp" "/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir/test/server.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,7 +20,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src/base"
   "../src/http"
-  "../src/redis"
+  "../src/database"
   )
 
 # Targets to which this target links.

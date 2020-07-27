@@ -341,32 +341,32 @@ http/RequestAndResponse.cpp.s:
 	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.s
 .PHONY : http/RequestAndResponse.cpp.s
 
-test/main.o: test/main.cpp.o
+test/server.o: test/server.cpp.o
 
-.PHONY : test/main.o
+.PHONY : test/server.o
 
 # target to build an object file
-test/main.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.o
-.PHONY : test/main.cpp.o
+test/server.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.o
+.PHONY : test/server.cpp.o
 
-test/main.i: test/main.cpp.i
+test/server.i: test/server.cpp.i
 
-.PHONY : test/main.i
+.PHONY : test/server.i
 
 # target to preprocess a source file
-test/main.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.i
-.PHONY : test/main.cpp.i
+test/server.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.i
+.PHONY : test/server.cpp.i
 
-test/main.s: test/main.cpp.s
+test/server.s: test/server.cpp.s
 
-.PHONY : test/main.s
+.PHONY : test/server.s
 
 # target to generate assembly for a file
-test/main.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/main.cpp.s
-.PHONY : test/main.cpp.s
+test/server.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.s
+.PHONY : test/server.cpp.s
 
 # Help Target
 help:
@@ -401,9 +401,9 @@ help:
 	@echo "... http/RequestAndResponse.o"
 	@echo "... http/RequestAndResponse.i"
 	@echo "... http/RequestAndResponse.s"
-	@echo "... test/main.o"
-	@echo "... test/main.i"
-	@echo "... test/main.s"
+	@echo "... test/server.o"
+	@echo "... test/server.i"
+	@echo "... test/server.s"
 .PHONY : help
 
 

@@ -71,18 +71,19 @@ src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o: ../src/base/Time.h
 src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o: ../src/http/RequestAndResponse.cpp
 src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o: ../src/http/RequestAndResponse.h
 
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Acceptor.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Channel.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Data.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Epoll.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/EventLoop.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Log.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Socket.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/TaskThread.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/TcpServer.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/ThreadPool.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/base/Time.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/http/HttpServer.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/http/RequestAndResponse.h
-src/CMakeFiles/server.dir/test/main.cpp.o: ../src/test/main.cpp
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Acceptor.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Channel.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Data.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Epoll.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/EventLoop.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Log.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Socket.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/TaskThread.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/TcpServer.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/ThreadPool.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/base/Time.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/database/RedisTool.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/http/HttpServer.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/http/RequestAndResponse.h
+src/CMakeFiles/server.dir/test/server.cpp.o: ../src/test/server.cpp
 

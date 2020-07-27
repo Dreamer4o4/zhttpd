@@ -181,18 +181,18 @@ std::string Socket::read(){
         }
     }
 
-    // fprintf(stderr, "req:%s\r\n\r\n\r\n",buff);
+    // fprintf(stderr, "req:%s\r\n\r\n\r\n",buff);          //测试，查看接收到的数据
     return std::string(buff);
 }
 
 void Socket::write(std::string &msg){
     send(fd_, msg.c_str(), msg.size(), 0);
-    // fprintf(stderr, "res:%s\r\n\r\n\r\n",msg.c_str());
+    // fprintf(stderr, "res:%s\r\n\r\n\r\n",msg.c_str());       //测试，查看发送的数据
 }
 
 void Socket::write(std::string &&msg){
     send(fd_, msg.c_str(), msg.size(), 0);
-    // fprintf(stderr, "res:%s\r\n\r\n\r\n",msg.c_str());
+    // fprintf(stderr, "res:%s\r\n\r\n\r\n",msg.c_str());       //测试，查看发送的数据
 }
 
 void Socket::send_file(Response::file_info info){

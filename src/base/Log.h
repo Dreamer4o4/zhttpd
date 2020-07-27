@@ -2,6 +2,7 @@
 #define _LOG_
 
 #include <boost/noncopyable.hpp>
+#include <cstdlib>
 
 #include "Time.h"
 
@@ -24,13 +25,13 @@ class Log : boost::noncopyable{
         
     private:
         Log() = default;
-        
+    
         ~Log() = default;
 };
 
 #define LOG_INFO(msg, ...)   base::Log::get_instance().write(base::Log::INFO, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
 #define LOG_WARN(msg, ...)   base::Log::get_instance().write(base::Log::WARN, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
-#define LOG_ERROR(msg, ...)   base::Log::get_instance().write(base::Log::ERROR, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__)
+#define LOG_ERROR(msg, ...)   {base::Log::get_instance().write(base::Log::ERROR, __FILE__, __FUNCTION__, __LINE__, msg, ##__VA_ARGS__);std::exit(0);}
 
 }
 
