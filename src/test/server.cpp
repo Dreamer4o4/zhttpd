@@ -91,23 +91,23 @@ void fun(base::Request &req, base::Response &res){
 void fun(base::Request &req, base::Response &res){
     res.set_status_code(200);
     res.set_file("test.html");
+    // std::string body("<HTML><HEAD><TITLE>zhttpd</TITLE></HEAD><BODY><h1>HELLO</h1><BODY><HTML>");
+    // res.set_body(body);
     res.set_keep_alive();
 }
 #endif
 
 void test(){            //测试用例
     LOG_INFO("testing");
-    // std::string key("asdasd"), val1("asdasd"), val2("1231231");
-    // database::RedisTool::get_instance().update_set(key, val1);
-    // database::RedisTool::get_instance().update_set(key, val2);
-    // std::vector<std::string> res = database::RedisTool::get_instance().get_set(key);
-    // for(auto i : res){
-    //     std::cout<<i<<std::endl;
-    // }
 
-    std::string time = base::Time::get_now_time();
-    std::replace(time.begin(), time.end(), ' ', '-');
-    std::cout<<time<<std::endl;
+    std::string key("asdasd"), val1("asdasd"), val2("1231231");
+    database::RedisTool::get_instance().update_set(key, val1);
+    database::RedisTool::get_instance().update_set(key, val2);
+    std::vector<std::string> res = database::RedisTool::get_instance().get_set(key);
+    for(auto i : res){
+        std::cout<<i<<std::endl;
+    }
+
     while(1);
 }
 

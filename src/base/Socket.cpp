@@ -197,6 +197,6 @@ void Socket::write(std::string &&msg){
 
 void Socket::send_file(Response::file_info info){
     int file_fd = open(info.file_name.c_str(), O_RDONLY);
-    sendfile(fd_, file_fd, NULL, info.file_size);
+    sendfile(fd_, file_fd, NULL, static_cast<size_t>(info.file_size));
     ::close(file_fd);
 }

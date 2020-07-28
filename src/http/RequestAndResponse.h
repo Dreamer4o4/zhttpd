@@ -50,7 +50,7 @@ public:
         }
 
         std::string file_name;
-        long int file_size;
+        off_t file_size;
     };
 
     enum SendFlag{
