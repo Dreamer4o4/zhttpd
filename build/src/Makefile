@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/server.dir/rule:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
-.PHONY : src/CMakeFiles/server.dir/rule
+src/CMakeFiles/blogserver.dir/rule:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/blogserver.dir/rule
+.PHONY : src/CMakeFiles/blogserver.dir/rule
 
 # Convenience name for target.
-server: src/CMakeFiles/server.dir/rule
+blogserver: src/CMakeFiles/blogserver.dir/rule
 
-.PHONY : server
+.PHONY : blogserver
 
 # fast build rule for target.
-server/fast:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
-.PHONY : server/fast
+blogserver/fast:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/build
+.PHONY : blogserver/fast
 
 base/Acceptor.o: base/Acceptor.cpp.o
 
@@ -131,7 +131,7 @@ base/Acceptor.o: base/Acceptor.cpp.o
 
 # target to build an object file
 base/Acceptor.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Acceptor.cpp.o
 .PHONY : base/Acceptor.cpp.o
 
 base/Acceptor.i: base/Acceptor.cpp.i
@@ -140,7 +140,7 @@ base/Acceptor.i: base/Acceptor.cpp.i
 
 # target to preprocess a source file
 base/Acceptor.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Acceptor.cpp.i
 .PHONY : base/Acceptor.cpp.i
 
 base/Acceptor.s: base/Acceptor.cpp.s
@@ -149,7 +149,7 @@ base/Acceptor.s: base/Acceptor.cpp.s
 
 # target to generate assembly for a file
 base/Acceptor.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Acceptor.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Acceptor.cpp.s
 .PHONY : base/Acceptor.cpp.s
 
 base/Channel.o: base/Channel.cpp.o
@@ -158,7 +158,7 @@ base/Channel.o: base/Channel.cpp.o
 
 # target to build an object file
 base/Channel.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Channel.cpp.o
 .PHONY : base/Channel.cpp.o
 
 base/Channel.i: base/Channel.cpp.i
@@ -167,7 +167,7 @@ base/Channel.i: base/Channel.cpp.i
 
 # target to preprocess a source file
 base/Channel.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Channel.cpp.i
 .PHONY : base/Channel.cpp.i
 
 base/Channel.s: base/Channel.cpp.s
@@ -176,7 +176,7 @@ base/Channel.s: base/Channel.cpp.s
 
 # target to generate assembly for a file
 base/Channel.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Channel.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Channel.cpp.s
 .PHONY : base/Channel.cpp.s
 
 base/Epoll.o: base/Epoll.cpp.o
@@ -185,7 +185,7 @@ base/Epoll.o: base/Epoll.cpp.o
 
 # target to build an object file
 base/Epoll.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Epoll.cpp.o
 .PHONY : base/Epoll.cpp.o
 
 base/Epoll.i: base/Epoll.cpp.i
@@ -194,7 +194,7 @@ base/Epoll.i: base/Epoll.cpp.i
 
 # target to preprocess a source file
 base/Epoll.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Epoll.cpp.i
 .PHONY : base/Epoll.cpp.i
 
 base/Epoll.s: base/Epoll.cpp.s
@@ -203,7 +203,7 @@ base/Epoll.s: base/Epoll.cpp.s
 
 # target to generate assembly for a file
 base/Epoll.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Epoll.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Epoll.cpp.s
 .PHONY : base/Epoll.cpp.s
 
 base/EventLoop.o: base/EventLoop.cpp.o
@@ -212,7 +212,7 @@ base/EventLoop.o: base/EventLoop.cpp.o
 
 # target to build an object file
 base/EventLoop.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/EventLoop.cpp.o
 .PHONY : base/EventLoop.cpp.o
 
 base/EventLoop.i: base/EventLoop.cpp.i
@@ -221,7 +221,7 @@ base/EventLoop.i: base/EventLoop.cpp.i
 
 # target to preprocess a source file
 base/EventLoop.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/EventLoop.cpp.i
 .PHONY : base/EventLoop.cpp.i
 
 base/EventLoop.s: base/EventLoop.cpp.s
@@ -230,7 +230,7 @@ base/EventLoop.s: base/EventLoop.cpp.s
 
 # target to generate assembly for a file
 base/EventLoop.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/EventLoop.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/EventLoop.cpp.s
 .PHONY : base/EventLoop.cpp.s
 
 base/Log.o: base/Log.cpp.o
@@ -239,7 +239,7 @@ base/Log.o: base/Log.cpp.o
 
 # target to build an object file
 base/Log.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Log.cpp.o
 .PHONY : base/Log.cpp.o
 
 base/Log.i: base/Log.cpp.i
@@ -248,7 +248,7 @@ base/Log.i: base/Log.cpp.i
 
 # target to preprocess a source file
 base/Log.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Log.cpp.i
 .PHONY : base/Log.cpp.i
 
 base/Log.s: base/Log.cpp.s
@@ -257,7 +257,7 @@ base/Log.s: base/Log.cpp.s
 
 # target to generate assembly for a file
 base/Log.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Log.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Log.cpp.s
 .PHONY : base/Log.cpp.s
 
 base/Socket.o: base/Socket.cpp.o
@@ -266,7 +266,7 @@ base/Socket.o: base/Socket.cpp.o
 
 # target to build an object file
 base/Socket.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Socket.cpp.o
 .PHONY : base/Socket.cpp.o
 
 base/Socket.i: base/Socket.cpp.i
@@ -275,7 +275,7 @@ base/Socket.i: base/Socket.cpp.i
 
 # target to preprocess a source file
 base/Socket.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Socket.cpp.i
 .PHONY : base/Socket.cpp.i
 
 base/Socket.s: base/Socket.cpp.s
@@ -284,8 +284,35 @@ base/Socket.s: base/Socket.cpp.s
 
 # target to generate assembly for a file
 base/Socket.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/Socket.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/Socket.cpp.s
 .PHONY : base/Socket.cpp.s
+
+base/TaskThread.o: base/TaskThread.cpp.o
+
+.PHONY : base/TaskThread.o
+
+# target to build an object file
+base/TaskThread.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TaskThread.cpp.o
+.PHONY : base/TaskThread.cpp.o
+
+base/TaskThread.i: base/TaskThread.cpp.i
+
+.PHONY : base/TaskThread.i
+
+# target to preprocess a source file
+base/TaskThread.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TaskThread.cpp.i
+.PHONY : base/TaskThread.cpp.i
+
+base/TaskThread.s: base/TaskThread.cpp.s
+
+.PHONY : base/TaskThread.s
+
+# target to generate assembly for a file
+base/TaskThread.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TaskThread.cpp.s
+.PHONY : base/TaskThread.cpp.s
 
 base/TcpServer.o: base/TcpServer.cpp.o
 
@@ -293,7 +320,7 @@ base/TcpServer.o: base/TcpServer.cpp.o
 
 # target to build an object file
 base/TcpServer.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TcpServer.cpp.o
 .PHONY : base/TcpServer.cpp.o
 
 base/TcpServer.i: base/TcpServer.cpp.i
@@ -302,7 +329,7 @@ base/TcpServer.i: base/TcpServer.cpp.i
 
 # target to preprocess a source file
 base/TcpServer.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TcpServer.cpp.i
 .PHONY : base/TcpServer.cpp.i
 
 base/TcpServer.s: base/TcpServer.cpp.s
@@ -311,8 +338,89 @@ base/TcpServer.s: base/TcpServer.cpp.s
 
 # target to generate assembly for a file
 base/TcpServer.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/base/TcpServer.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/base/TcpServer.cpp.s
 .PHONY : base/TcpServer.cpp.s
+
+blogserver/BlogServer.o: blogserver/BlogServer.cpp.o
+
+.PHONY : blogserver/BlogServer.o
+
+# target to build an object file
+blogserver/BlogServer.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/BlogServer.cpp.o
+.PHONY : blogserver/BlogServer.cpp.o
+
+blogserver/BlogServer.i: blogserver/BlogServer.cpp.i
+
+.PHONY : blogserver/BlogServer.i
+
+# target to preprocess a source file
+blogserver/BlogServer.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/BlogServer.cpp.i
+.PHONY : blogserver/BlogServer.cpp.i
+
+blogserver/BlogServer.s: blogserver/BlogServer.cpp.s
+
+.PHONY : blogserver/BlogServer.s
+
+# target to generate assembly for a file
+blogserver/BlogServer.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/BlogServer.cpp.s
+.PHONY : blogserver/BlogServer.cpp.s
+
+blogserver/main.o: blogserver/main.cpp.o
+
+.PHONY : blogserver/main.o
+
+# target to build an object file
+blogserver/main.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/main.cpp.o
+.PHONY : blogserver/main.cpp.o
+
+blogserver/main.i: blogserver/main.cpp.i
+
+.PHONY : blogserver/main.i
+
+# target to preprocess a source file
+blogserver/main.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/main.cpp.i
+.PHONY : blogserver/main.cpp.i
+
+blogserver/main.s: blogserver/main.cpp.s
+
+.PHONY : blogserver/main.s
+
+# target to generate assembly for a file
+blogserver/main.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/blogserver/main.cpp.s
+.PHONY : blogserver/main.cpp.s
+
+database/RedisConnect.o: database/RedisConnect.cpp.o
+
+.PHONY : database/RedisConnect.o
+
+# target to build an object file
+database/RedisConnect.cpp.o:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/database/RedisConnect.cpp.o
+.PHONY : database/RedisConnect.cpp.o
+
+database/RedisConnect.i: database/RedisConnect.cpp.i
+
+.PHONY : database/RedisConnect.i
+
+# target to preprocess a source file
+database/RedisConnect.cpp.i:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/database/RedisConnect.cpp.i
+.PHONY : database/RedisConnect.cpp.i
+
+database/RedisConnect.s: database/RedisConnect.cpp.s
+
+.PHONY : database/RedisConnect.s
+
+# target to generate assembly for a file
+database/RedisConnect.cpp.s:
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/database/RedisConnect.cpp.s
+.PHONY : database/RedisConnect.cpp.s
 
 http/RequestAndResponse.o: http/RequestAndResponse.cpp.o
 
@@ -320,7 +428,7 @@ http/RequestAndResponse.o: http/RequestAndResponse.cpp.o
 
 # target to build an object file
 http/RequestAndResponse.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.o
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/http/RequestAndResponse.cpp.o
 .PHONY : http/RequestAndResponse.cpp.o
 
 http/RequestAndResponse.i: http/RequestAndResponse.cpp.i
@@ -329,7 +437,7 @@ http/RequestAndResponse.i: http/RequestAndResponse.cpp.i
 
 # target to preprocess a source file
 http/RequestAndResponse.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.i
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/http/RequestAndResponse.cpp.i
 .PHONY : http/RequestAndResponse.cpp.i
 
 http/RequestAndResponse.s: http/RequestAndResponse.cpp.s
@@ -338,35 +446,8 @@ http/RequestAndResponse.s: http/RequestAndResponse.cpp.s
 
 # target to generate assembly for a file
 http/RequestAndResponse.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/http/RequestAndResponse.cpp.s
+	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/blogserver.dir/build.make src/CMakeFiles/blogserver.dir/http/RequestAndResponse.cpp.s
 .PHONY : http/RequestAndResponse.cpp.s
-
-test/server.o: test/server.cpp.o
-
-.PHONY : test/server.o
-
-# target to build an object file
-test/server.cpp.o:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.o
-.PHONY : test/server.cpp.o
-
-test/server.i: test/server.cpp.i
-
-.PHONY : test/server.i
-
-# target to preprocess a source file
-test/server.cpp.i:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.i
-.PHONY : test/server.cpp.i
-
-test/server.s: test/server.cpp.s
-
-.PHONY : test/server.s
-
-# target to generate assembly for a file
-test/server.cpp.s:
-	cd /home/zh/Downloads/zhttpd/build && $(MAKE) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/test/server.cpp.s
-.PHONY : test/server.cpp.s
 
 # Help Target
 help:
@@ -376,7 +457,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... server"
+	@echo "... blogserver"
 	@echo "... base/Acceptor.o"
 	@echo "... base/Acceptor.i"
 	@echo "... base/Acceptor.s"
@@ -395,15 +476,24 @@ help:
 	@echo "... base/Socket.o"
 	@echo "... base/Socket.i"
 	@echo "... base/Socket.s"
+	@echo "... base/TaskThread.o"
+	@echo "... base/TaskThread.i"
+	@echo "... base/TaskThread.s"
 	@echo "... base/TcpServer.o"
 	@echo "... base/TcpServer.i"
 	@echo "... base/TcpServer.s"
+	@echo "... blogserver/BlogServer.o"
+	@echo "... blogserver/BlogServer.i"
+	@echo "... blogserver/BlogServer.s"
+	@echo "... blogserver/main.o"
+	@echo "... blogserver/main.i"
+	@echo "... blogserver/main.s"
+	@echo "... database/RedisConnect.o"
+	@echo "... database/RedisConnect.i"
+	@echo "... database/RedisConnect.s"
 	@echo "... http/RequestAndResponse.o"
 	@echo "... http/RequestAndResponse.i"
 	@echo "... http/RequestAndResponse.s"
-	@echo "... test/server.o"
-	@echo "... test/server.i"
-	@echo "... test/server.s"
 .PHONY : help
 
 

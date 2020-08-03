@@ -24,21 +24,21 @@ Socket::Socket(int fd) : info_(),
     ;
 }
 
-Socket::Socket(data &info) : info_(info),
-                                fd_(get_resuse_sock(info_.client_port)),
+Socket::Socket(data &info, bool nonblock) : info_(info),
+                                fd_(get_sock(info_.client_port, nonblock)),
                                 listening(false),
                                 block(true){
     ;
 }
 
-Socket::Socket(data &&info) : info_(info),
-                                fd_(get_resuse_sock(info_.client_port)),
+Socket::Socket(data &&info, bool nonblock) : info_(info),
+                                fd_(get_sock(info_.client_port, nonblock)),
                                 listening(false),
                                 block(true){
     ;
 }
 
-int Socket::get_resuse_sock(const char *port){
+int Socket::get_sock(const char *port, bool nonblock){
     int sock, optval = 1;
     struct addrinfo hint;
     struct addrinfo *res, *tmp;
@@ -58,12 +58,19 @@ int Socket::get_resuse_sock(const char *port){
     }
 
     for(tmp = res; tmp != NULL; res = res->ai_next, tmp = res){
+        if(nonblock){
+            tmp->ai_socktype |= SOCK_NONBLOCK;
+        }
         sock = socket(tmp->ai_family, tmp->ai_socktype, tmp->ai_protocol);
         if(sock < 0){
             continue;
         }
 
-        if(setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) == -1){
+        if(setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) != 0){
+            ::close(sock);
+            continue;
+        }
+        if(setsockopt(sock, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval)) != 0){
             ::close(sock);
             continue;
         }
@@ -76,7 +83,7 @@ int Socket::get_resuse_sock(const char *port){
         break;
     }
     if(tmp == NULL){
-        LOG_ERROR("can not get a acceptor socket");
+        LOG_ERROR("can not get a socket");
         return -1;
     }
     freeaddrinfo(res);
@@ -117,9 +124,9 @@ int Socket::listen(){
         LOG_WARN("already listening now");
         return -1;
     }
-
+    
     listening = true;
-    if(::listen(fd_, 128) != 0){
+    if(::listen(fd_, SOMAXCONN) != 0){
         close();
         LOG_ERROR("listen failed");
         return -2;
@@ -128,22 +135,22 @@ int Socket::listen(){
     return 0;
 }
 
-std::unique_ptr<Socket> Socket::accept(){
+Socket *Socket::accept(){
     if(!listening){
         LOG_WARN("not listening now");
-        return std::unique_ptr<Socket>(nullptr);
+        return nullptr;
     }
 
     struct sockaddr_storage client_addr;
     socklen_t client_addr_len = sizeof(struct sockaddr_storage);
 
-    int client_fd = ::accept(fd_, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len);
+    int client_fd = ::accept4(fd_, reinterpret_cast<struct sockaddr*>(&client_addr), &client_addr_len, SOCK_NONBLOCK | SOCK_CLOEXEC);
     if(client_fd <= 0){
-        LOG_ERROR("accept error");
-        return std::unique_ptr<Socket>(nullptr);
+        LOG_WARN("accept error");
+        return nullptr;
     }
 
-    std::unique_ptr<Socket> client_sock = std::make_unique<Socket> (client_fd);
+    Socket *client_sock = new Socket(client_fd);
 #ifdef  GET_PEER_ADDR
     struct data client_info;
     getnameinfo(reinterpret_cast<struct sockaddr*>(&client_addr), client_addr_len, client_info.client_host, NI_MAXHOST, client_info.client_port, NI_MAXSERV, 0);

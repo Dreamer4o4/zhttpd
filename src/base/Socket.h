@@ -13,12 +13,10 @@ namespace base{
 class Socket : boost::noncopyable{
 public:
     Socket(int fd);
-    Socket(data &info);
-    Socket(data &&info);
+    Socket(data &info, bool nonblock);
+    Socket(data &&info, bool nonblock);
 
     ~Socket();
-
-    void set_non_block();
 
     void set_sock_info(data &info);
     data &get_sock_info();
@@ -26,7 +24,7 @@ public:
     int fd();
 
     int listen();
-    std::unique_ptr<Socket> accept();
+    Socket *accept();       //accept nonblock-socket
     void close();
     void shutdown(int type);
 
@@ -35,12 +33,13 @@ public:
     void write(std::string &&msg);
     void send_file(Response::file_info info);
 
+    void set_non_block();
+
     static const int RD = SHUT_RD;
     static const int WR = SHUT_WR;
     static const int RW = SHUT_WR;
-
 private:
-    int get_resuse_sock(const char *port);
+    int get_sock(const char *port, bool nonblock);
 
     data info_;
     int fd_;

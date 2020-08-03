@@ -16,7 +16,7 @@ namespace base{
 
 class TcpServer : boost::noncopyable{
     public:
-        typedef std::function<void (std::string &, std::shared_ptr<Channel> &)> Functor;
+        typedef std::function<void (std::string &, Channel *)> Functor;
         
         TcpServer(std::string port, int pool_size, Functor &&func);
 
@@ -25,22 +25,17 @@ class TcpServer : boost::noncopyable{
         void start();
 
     private:
-        void channel_read(std::shared_ptr<Channel> &channel);
-        void channel_close(std::shared_ptr<Channel> &channel);
+        void channel_read(Channel *channel);
+        void channel_close(Channel *channel);
 
-        void accept_func(std::unique_ptr<Socket> &&client_sock);
-
-        void delete_channel_in_map(Channel *channel);
+        void accept_func(Socket *client_sock);
 
         static const int rec_buff_len = 512;
 
-        std::shared_ptr<EventLoop> loop_;
+        EventLoop *loop_;
         std::unique_ptr<Acceptor> acceptor_;
         Functor request_callback_;
-        std::shared_ptr<ThreadPool> thread_pool_;
-        int channel_id;
-        std::map<std::string, std::shared_ptr<base::Channel>> channel_map;
-        std::mutex mutex_;
+        std::unique_ptr<ThreadPool> thread_pool_;
 };
 
 }

@@ -17,52 +17,24 @@ namespace base{
 
 class TaskThread : boost::noncopyable{
     public:
-        TaskThread() : que_(),
-                    started_(false),
-                    tid(0){
-            ;
-        }
+        TaskThread();
 
-        void start(){
-            if(started_){
-                LOG_ERROR("thread has been started");
-                return ;
-            }
+        void start();
 
-            thread_ = std::make_shared<std::thread>(std::bind(&TaskThread::run, this));
+        EventLoop *get_thread_loop();
 
-            std::ostringstream oss;
-            oss << thread_->get_id();
-            std::string stid = oss.str();
-            tid = std::stoull(stid);
-
-            // LOG_INFO("tid: %lld start", tid);
-
-            thread_->detach();
-            
-            started_ = true;
-        }
-
-        std::weak_ptr<EventLoop> &get_thread_loop(){
-            return loop_;
-        }
+        static pid_t get_tid();
 
     private:
-        void run(){
-            std::shared_ptr<EventLoop> loop = std::make_shared<EventLoop> ();
-            loop_ = loop;
-            loop->loop();
-            loop_.reset();
-        }
+        void run();
 
         static const int overtime = 10000;
 
-        std::shared_ptr<std::thread> thread_;
+        std::unique_ptr<std::thread> thread_;
         std::queue<int> que_;
-        std::weak_ptr<EventLoop> loop_;
+        EventLoop *loop_;
         bool started_;
-        std::map<int, std::shared_ptr<struct data>> map_;
-        unsigned long long tid;
+        static volatile thread_local pid_t tid_;
 };
 
 }

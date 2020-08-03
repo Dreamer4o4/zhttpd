@@ -22,7 +22,7 @@ public:
         server_.start();
     }
 private:
-    void http_read(std::string &msg, std::shared_ptr<Channel> &channel){
+    void http_read(std::string &msg, Channel *channel){
         Request req(msg);
         Response res;
         http_callback_(req, res);

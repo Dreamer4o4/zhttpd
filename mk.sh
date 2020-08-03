@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -f "server" ]; 
-    then    rm server
+if [ -f "blogserver" ]; 
+    then    rm blogserver
 fi
 
 cd build
@@ -10,6 +10,6 @@ cmake .. && make
 
 cd ../
 
-if [ -f "server" ]; 
-    then    ./server
+if [ -f "blogserver" ]; 
+    then    ./blogserver
 fi

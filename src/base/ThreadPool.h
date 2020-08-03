@@ -28,12 +28,9 @@ class ThreadPool : boost::noncopyable{
             LOG_INFO("%d threads start", thread_num_);
         }
 
-        std::weak_ptr<EventLoop> &get_next_loop(){
-            std::weak_ptr<EventLoop> &next_loop = threads_[next_]->get_thread_loop();
-            next_++;
-            if(next_ >= thread_num_){
-                next_ = 0;
-            }
+        EventLoop *get_next_loop(){
+            EventLoop *next_loop = threads_[next_]->get_thread_loop();
+            next_ = (next_ + 1) % thread_num_;
             return next_loop;
         }
 

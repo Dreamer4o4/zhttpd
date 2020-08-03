@@ -22,23 +22,17 @@ class EventLoop : boost::noncopyable{
         void loop();
         void quit();
 
-        void run_in_loop(Functor cb);
-
-        void add_channel(std::shared_ptr<Channel> &channel);
-        void remove_channel(std::shared_ptr<Channel> &channel);
+        void add_channel(Channel *channel);
+        void remove_channel(Channel *channel);
 
     private:
-        void do_pending_functors();
-
-        typedef std::vector<std::shared_ptr<Channel>> ChannelList;
+        typedef std::vector<Channel *> ChannelList;
         const int overtime = 1000;
 
         bool looping_;
         bool quit_;
         Epoll poller_;
         ChannelList active_channels_;
-        std::mutex mutex_;
-        std::vector<Functor> pending_functors_;
 };
 
 

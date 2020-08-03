@@ -22,16 +22,16 @@ Epoll::~Epoll(){
     close(epfd_);
 }
 
-bool Epoll::add_event(std::shared_ptr<Channel> &channel){
+bool Epoll::add_event(Channel *channel){
     struct epoll_event ev;
     memset(&ev, 0, sizeof(ev));
     ev.events = channel->event();
-    ev.data.ptr = channel.get();
+    ev.data.ptr = channel;
     
     return (epoll_ctl(epfd_, EPOLL_CTL_ADD, channel->sock()->fd(), &ev) == 0) ? true : false;
 }
 
-bool Epoll::rm_event(std::shared_ptr<Channel> &channel){
+bool Epoll::rm_event(Channel *channel){
     struct epoll_event ev;
     memset(&ev, 0, sizeof(ev));
 
@@ -45,7 +45,7 @@ int Epoll::wait(int time, ChannelList &channels){
         for(int i=0; i<num; i++){
             Channel *channel = static_cast<Channel*>(events_[i].data.ptr);
             channel->set_revents(events_[i].events);
-            channels.push_back(channel->shared_from_this());
+            channels.push_back(channel);
         }
 
         if (static_cast<size_t>(num) == events_.size()){

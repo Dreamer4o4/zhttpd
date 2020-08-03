@@ -2,4 +2,4 @@
 /home/zh/Downloads/zhttpd/build/CMakeFiles/edit_cache.dir
 /home/zh/Downloads/zhttpd/build/src/CMakeFiles/rebuild_cache.dir
 /home/zh/Downloads/zhttpd/build/src/CMakeFiles/edit_cache.dir
-/home/zh/Downloads/zhttpd/build/src/CMakeFiles/server.dir
+/home/zh/Downloads/zhttpd/build/src/CMakeFiles/blogserver.dir

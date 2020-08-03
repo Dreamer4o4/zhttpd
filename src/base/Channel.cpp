@@ -6,20 +6,19 @@
 
 using namespace base;
 
-Channel::Channel(std::weak_ptr<EventLoop> loop, std::unique_ptr<Socket> &&fd)
+Channel::Channel(EventLoop *loop, Socket *fd)
   : loop_(loop),
-    sock_(std::move(fd)),
+    sock_(fd),
     revents_(0),
-    event_(0),
-    name_("unknow"){
+    event_(0){
         ;
 }
 
 Channel::~Channel(){
-    ;
+    delete sock_;
 }
 
-std::unique_ptr<Socket> &Channel::sock(){
+Socket *Channel::sock(){
     return sock_;
 }
 
@@ -37,19 +36,17 @@ void Channel::set_close_callback(Functor &&cb){
 
 void Channel::handle_event()
 {
-    std::shared_ptr<Channel> cur = shared_from_this();
-
     if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN))
     {
-        if (close_callback) close_callback(cur);
+        if (close_callback) close_callback(this);
     }
     if (revents_ & (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
     {
-        if (read_callback) read_callback(cur);
+        if (read_callback) read_callback(this);
     }
     if (revents_ & EPOLLOUT)
     {
-        if (write_callback) write_callback(cur);
+        if (write_callback) write_callback(this);
     }
 }
 
@@ -65,20 +62,10 @@ uint32_t Channel::event(){
     return event_;
 }
 
-void Channel::set_name(std::string &name){
-    name_ = std::move(name);
+void Channel::add_into_loop(){
+    loop_->add_channel(this);
 }
 
-std::string &Channel::name(){
-    return name_;
-}
-
-void Channel::set_non_block(){
-    event_ |= EPOLLET;
-    sock_->set_non_block();
-}
-
-
-std::weak_ptr<EventLoop> Channel::get_loop(){
-    return loop_;
+void Channel::rm_from_loop(){
+    loop_->remove_channel(this);
 }

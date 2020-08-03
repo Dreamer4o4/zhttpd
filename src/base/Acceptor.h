@@ -19,9 +19,9 @@ namespace base{
 
 class Acceptor : boost::noncopyable{
     public:
-        typedef std::function<void (std::unique_ptr<Socket> &&)> Functor;
+        typedef std::function<void (Socket *)> Functor;
 
-        Acceptor(std::weak_ptr<EventLoop> loop, Functor &&func, const std::string &port);
+        Acceptor(EventLoop *loop, Functor &&func, const std::string &port);
         ~Acceptor();
 
         int start();
@@ -29,11 +29,11 @@ class Acceptor : boost::noncopyable{
     private:
         int listen();
 
-        void handle_read(std::shared_ptr<Channel> &channel);
+        void handle_read(Channel *channel);
 
         static const int overtime = 10000;
 
-        std::weak_ptr<EventLoop> loop_;
+        EventLoop *loop_;
         Functor callback_;
         std::shared_ptr<Channel> accept_channel_;
 };
