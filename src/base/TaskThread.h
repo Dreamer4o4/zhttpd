@@ -3,11 +3,7 @@
 
 #include <boost/noncopyable.hpp>
 #include <thread>
-#include <mutex>
-#include <map>
 #include <queue>
-#include <string>
-#include <sstream>
 
 #include "EventLoop.h"
 #include "Data.h"
